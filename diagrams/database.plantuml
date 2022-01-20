@@ -1,0 +1,63 @@
+@startuml
+
+' hide the spot
+hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity User {
+	* id : number <<generated>>
+	--
+	* email : string
+	* password_digest : string
+	name : string
+	picture : string
+	phone : string
+}
+
+entity Restaurant {
+	* id : number <<generated>>
+	--
+	* name : string
+	* phone : string
+	* address : string
+	picture : string
+	description : text
+}
+
+entity Dish {
+	* id : number <<generated>>
+	--
+	* name : string
+	* price : decimal
+	* restaurant_id : number <<FK>>
+	* dish_type_id : number <<FK>>
+	picture : string
+	weight : float
+}
+
+entity DishType {
+	* id : number <<generated>>
+	* name : string
+}
+
+entity Order {
+	* id : number <<generated>>
+	* user_id : number <<FK>>
+}
+
+entity DishOrderList {
+	* id : number <<generated>>
+	--
+	* order_id : number <<FK>>
+	* dish_id : number <<FK>>
+}
+
+Restaurant |o..o{ Dish
+DishType |o..o{ Dish
+User |o..o{ Order
+DishOrderList }o..o{ Order
+DishOrderList }o..o{ Dish
+		
+@enduml
