@@ -13,6 +13,8 @@ Things you may want to cover:
 
 * Database creation
 
+![alt "Database diagram"](./diagrams/database.png "Database diagram")
+
 * Database initialization
 
 * How to run the test suite
