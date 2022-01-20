@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_132420) do
+ActiveRecord::Schema.define(version: 2022_01_20_134454) do
 
   create_table "dish_order_lists", force: :cascade do |t|
     t.integer "order_id", null: false
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 2022_01_20_132420) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.string "password_digest"
     t.string "avatar"
     t.string "phone_number"
     t.datetime "created_at", precision: 6, null: false
