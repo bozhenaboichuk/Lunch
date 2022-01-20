@@ -11,16 +11,17 @@ entity User {
 	--
 	* email : string
 	* password_digest : string
-	name : string
-	picture : string
-	phone : string
+	first_name : string
+	last_name : string
+	avatar : string
+	phone_number : string
 }
 
 entity Restaurant {
 	* id : number <<generated>>
 	--
 	* name : string
-	* phone : string
+	* phone_number : string
 	* address : string
 	picture : string
 	description : text
