@@ -1,16 +1,22 @@
-<h2>Forgot your password?</h2>
+<section class="flex h-screen bg-sky-200 ">
+    <div class="w-full max-w-xs m-auto bg-sky-100 rounded p-5">
+    <h2 class="text-3xl mb-4 font-medium text-center text-cyan-800">Reset password</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="field block mb-2  text-cyan-600">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'bg-white  focus:outline-none  border-2 border-white rounded-lg py-1 px-3 block w-full appearance-none leading-normal' %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+      <div class="actions">
+        <%= f.submit "Submit", class:'bg-cyan-800 hover:bg-cyan-600 p-2 px-5 text-white text-lg rounded' %>
+      </div>
+    <% end %>
 
-<%= render "users/shared/links" %>
+    <div class="text-sm text-center mt-3 text-cyan-800">
+      <%= render "users/shared/links" %>
+    </div>
+
+</section>
