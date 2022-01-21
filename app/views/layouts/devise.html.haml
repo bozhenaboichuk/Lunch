@@ -16,12 +16,13 @@
           %h1.text-blue-300.hover:text-white
             = link_to "Lunch", root_path
 
+      %main
+
+        %p.notice
+          = notice
+        %p.alert
+          = alert
+
+          = yield
+
       %footer
-      %h1.text-red-400 Restaurants
-
-      %p.notice
-        = notice
-      %p.alert
-        = alert
-
-      = yield
