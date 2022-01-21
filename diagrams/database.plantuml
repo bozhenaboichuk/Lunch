@@ -10,11 +10,11 @@ entity User {
 	* id : number <<generated>>
 	--
 	* email : string
-	* password_digest : string
 	first_name : string
 	last_name : string
 	avatar : string
 	phone_number : string
+	devise-related fields
 }
 
 entity Restaurant {
@@ -30,12 +30,12 @@ entity Restaurant {
 entity Dish {
 	* id : number <<generated>>
 	--
-	* name : string
-	* price : decimal
 	* restaurant_id : number <<FK>>
 	* dish_type_id : number <<FK>>
-	picture : string
+	* price : decimal
 	weight : float
+	* name : string
+	picture : string
 }
 
 entity DishType {
