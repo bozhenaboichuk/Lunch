@@ -10,9 +10,26 @@
     = javascript_importmap_tags
 
     %body
-      %p.notice
-        = notice
-      %p.alert
-        = alert
+      .container.mx-auto.text-center
+        %header.p-8
+          %nav.flex.justify-between
+            = link_to 'Lunch', root_path, class: 'text-indigo-500 text-2xl'
+            %div
+              links
 
-      = yield
+        .grid.grid-cols-12.gap-4
+          %main.col-span-9.py-8
+
+            %p.notice
+              = notice
+            %p.alert
+              = alert
+
+            %section.container
+              = yield
+
+          %aside.col-span-3.py-8 Sidebar
+
+        %footer.py-8
+          &copy;
+          = "Copyrignt #{Time.now.year} Lunch"
