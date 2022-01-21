@@ -36,9 +36,9 @@ COPY Gemfile Gemfile.lock ./
 
 RUN bundle check || bundle install
 
-# COPY package.json yarn.lock ./
+COPY package.json yarn.lock ./
 
-# RUN yarn install --check-files
+RUN yarn install --check-files
 
 COPY . ./
 
