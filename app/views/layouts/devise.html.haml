@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title Lunch
+    %meta{name: "viewport", content: "width=device-width,initial-scale=1"}
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'wind', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+
+
+    %body
+      %header
+        %nav.bg-cyan-700.h-20.flex.justify-between
+          %h1.text-blue-300.hover:text-white
+            = link_to "Lunch", root_path
+
+      %footer
+      %h1.text-red-400 Restaurants
+
+      %p.notice
+        = notice
+      %p.alert
+        = alert
+
+      = yield
