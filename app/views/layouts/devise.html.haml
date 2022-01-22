@@ -10,13 +10,16 @@
     = javascript_importmap_tags
 
 
-    %body
+    %body.h-screen
       %header
-        %nav.bg-cyan-700.h-20.flex.justify-between
-          %h1.text-blue-300.hover:text-white
+        %nav.bg-cyan-700.space-y-4
+          %h1.p-5.text-2xl.text-blue-300.hover:text-white
             = link_to "Lunch", root_path
-
-      %main
+          -# = link_to image_tag( 'Lunch.png'), root_path
+          -# .ui.medium.image
+          -# %image{:alt => "", :src => "asset_path('Lunch.png')}"}
+          -# %img(src="Lunch.png")
+          -# = image_tag('images/Lunch', class:"img-responsive img-circle")
 
         %p.notice
           = notice
@@ -25,4 +28,7 @@
 
         = yield
 
-      %footer
+      %footer.bg-cyan-700.py-8
+        .container.mx-auto.text-center.text-white
+          &copy;
+          = "Copyrignt #{Time.now.year} Lunch"
