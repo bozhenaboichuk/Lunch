@@ -47,18 +47,26 @@ development:
 #   <<: *default-sqlite3
 #   database: db/test.sqlite3
 
+# test:
+#   <<: *default-mysql
+#   database: lunch_test
+#   username: lunch_app
+#   password: Bozhena27$
+  
 test:
-  <<: *default-mysql
+  <<: *default-psql
   database: lunch_test
-  username: lunch_app
-  password: Bozhena27$
   
 # production:
 #   <<: *default-sqlite3
 #   database: db/production.sqlite3
 
+# production:
+#   <<: *default-mysql
+#   database: lunch_prod
+#   username: lunch_app
+#   password: Bozhena27$
+
 production:
-  <<: *default-mysql
+  <<: *default-psql
   database: lunch_prod
-  username: lunch_app
-  password: Bozhena27$
