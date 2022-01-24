@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.heading-1 {
+  @apply text-gray-700 text-4xl font-light mb-8 text-center
+}
+
+.heading-2 {
+  @apply text-gray-700 text-2xl font-light mb-8 text-center
+}
+
+.card {
+  @apply shadow bg-white rounded p-4
+}
+
+.btn {
+  @apply text-sm rounded-full p-1 lowercase border border-indigo-500 hover:bg-indigo-500 hover:text-white
+}
