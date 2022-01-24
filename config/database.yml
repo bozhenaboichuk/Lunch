@@ -14,7 +14,6 @@ default-mysql: &default-mysql
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   # socket: /var/run/mysqld/mysqld.sock
-  url: postgres://ybnxtrhppkyyyd:cb60401a49e5c7a4cc5ba565a28afa7d4559a1f6a7182e90a91fb810ef324a5f@ec2-52-45-73-150.compute-1.amazonaws.com:5432/daq3utdlrb9shf
   reconnect: true
 
 default-psql: &default-psql
