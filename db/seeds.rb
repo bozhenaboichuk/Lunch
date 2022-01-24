@@ -28,6 +28,6 @@ def populate_dishes
                { name: "Test desert1 for restaurant1", dish_type: DishType.find_by(name: "desert"), restaurant: Restaurant.first }]
 end
 
-# populate_restaurants
-# populate_dish_types
-# populate_dishes
+populate_restaurants
+populate_dish_types
+populate_dishes
