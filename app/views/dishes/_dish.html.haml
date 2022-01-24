@@ -1,0 +1,8 @@
+%article.card
+  %section
+    .block
+      = dish.name
+    .block
+      = dish.dish_type.name
+  %section.mt-2
+    =# link_to 'Show', dish_path(dish), class: 'btn'
