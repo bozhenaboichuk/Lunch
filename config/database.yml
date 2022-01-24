@@ -16,15 +16,29 @@ default-mysql: &default-mysql
   socket: /var/run/mysqld/mysqld.sock 
   reconnect: true
 
+default-psql: &default-psql
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: lunch_app
+  # password: <%= ENV['LUNCH_DATABASE_PASSWORD'] %>
+  password: '6'
+
 # development:
 #   <<: *default-sqlite3
 #   database: db/development.sqlite3
 
+# development:
+#   <<: *default-mysql
+#   database: lunch_devel
+#   username: lunch_app
+#   password: Bozhena27$
+
 development:
-  <<: *default-mysql
+  <<: *default-psql
   database: lunch_devel
-  username: lunch_app
-  password: Bozhena27$
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
