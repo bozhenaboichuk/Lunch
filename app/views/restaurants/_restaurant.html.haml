@@ -1,0 +1,10 @@
+%article.card
+  %section
+    .block
+      = restaurant.name
+    .block
+      = restaurant.address
+    .block
+      = restaurant.phone_number
+  %section.mt-2
+    = link_to 'Show', restaurant_path(restaurant), class: 'btn'
