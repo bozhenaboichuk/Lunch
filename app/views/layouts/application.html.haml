@@ -9,27 +9,30 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
 
-    %body
-      .container.mx-auto.text-center
-        %header.p-8
-          %nav.flex.justify-between
-            = link_to 'Lunch', root_path, class: 'text-indigo-500 text-2xl'
+    %body.text-gray-600
+      .container.mx-auto
+        %header.p-4.border-b
+          %nav.md:flex.md:justify-between.pt-2
+            = link_to 'Lunch', root_path, class: 'text-gray-700 text-xl md:text-2xl font-bold uppercase'
             %div
-              links
+              %ul.md:flex
+                %li.md:mx-4.text-gray-700.font-bold.md:border-b
+                  link1
+                %li.md:mx-4
+                  link2
+                %li.md:mx-4
+                  link3
 
-        .grid.grid-cols-12.gap-4
-          %main.col-span-9.py-8
+        %main.p-8.bg-gray-100
 
-            %p.notice
-              = notice
-            %p.alert
-              = alert
+          %p.notice
+            = notice
+          %p.alert
+            = alert
 
-            %section.container
-              = yield
+          %section.container
+            = yield
 
-          %aside.col-span-3.py-8 Sidebar
-
-        %footer.py-8
+        %footer.py-8.text-xl.font-light.border-t.text-center
           &copy;
           = "Copyrignt #{Time.now.year} Lunch"
