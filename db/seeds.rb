@@ -15,18 +15,17 @@ def populate_dish_types
 end
 
 def populate_restaurants
-  Restaurant.destroy_all
-  Restaurant.create [{ name: "Test restaurant1", address: "Test address1", phone_number: "12345" },
-                     { name: "Test restaurant2", address: "Test address2", phone_number: "12345" },
-                     { name: "Test restaurant3", address: "Test address3", phone_number: "12345" }, 
-                     { name: "Test restaurant4", address: "Test address4", phone_number: "12345" },
-                     { name: "Test restaurant5", address: "Test address5", phone_number: "12345" }]
+  Restaurant.create [{ name: "Test restaurant1", address: "Test address1", phone_number: "12345", picture: "f.jpg"},
+                     { name: "Test restaurant2", address: "Test address2", phone_number: "12345", picture: "f.jpg" },
+                     { name: "Test restaurant3", address: "Test address3", phone_number: "12345", picture: "f.jpg" },
+                     { name: "Test restaurant4", address: "Test address4", phone_number: "12345", picture: "f.jpg" },
+                     { name: "Test restaurant5", address: "Test address5", phone_number: "12345", picture: "f.jpg" }]
 end
 
 def populate_dishes
   Dish.destroy_all
   Dish.create [{ name: "Test first dish1 for restaurant1", dish_type: DishType.find_by(name: "first"), restaurant: Restaurant.first },
-               { name: "Test second dish1 for restaurant1", dish_type: DishType.find_by(name: "second"), restaurant: Restaurant.first }, 
+               { name: "Test second dish1 for restaurant1", dish_type: DishType.find_by(name: "second"), restaurant: Restaurant.first },
                { name: "Test salad1 for restaurant1", dish_type: DishType.find_by(name: "salad"), restaurant: Restaurant.first },
                { name: "Test desert1 for restaurant1", dish_type: DishType.find_by(name: "desert"), restaurant: Restaurant.first }]
 end
