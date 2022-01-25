@@ -26,9 +26,9 @@ default-psql: &default-psql
   password: <%= ENV['DB_PASSWORD'] %>
   host: <%= ENV['HOST'] %>
 
-# development:
-#   <<: *default-sqlite3
-#   database: db/development.sqlite3
+development:
+  <<: *default-sqlite3
+  database: db/development.sqlite3
 
 # development:
 #   <<: *default-mysql
@@ -36,9 +36,9 @@ default-psql: &default-psql
 #   username: lunch_app
 #   password: Bozhena27$
 
-development:
-  <<: *default-psql
-  database: <%= ENV['DB_DEVEL_NAME'] %>
+# development:
+#   <<: *default-psql
+#   database: <%= ENV['DB_DEVEL_NAME'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
