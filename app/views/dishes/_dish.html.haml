@@ -1,7 +1,8 @@
 %article.card
   %section
     .block
-      = image_tag dish.picture || ''
+      =# image_tag 'dish.picture' || '', onerror: {this.error = null}
+      %img{src: "/images/#{dish.picture}", alt: "#{dish.picture}"}
     .block
       = dish.name
     .block
