@@ -12,12 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2022_01_20_134454) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "dish_order_lists", force: :cascade do |t|
-    t.bigint "order_id", null: false
-    t.bigint "dish_id", null: false
+    t.integer "order_id", null: false
+    t.integer "dish_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["dish_id"], name: "index_dish_order_lists_on_dish_id"
@@ -35,8 +32,8 @@ ActiveRecord::Schema.define(version: 2022_01_20_134454) do
     t.float "weight"
     t.string "name"
     t.string "picture"
-    t.bigint "restaurant_id", null: false
-    t.bigint "dish_type_id", null: false
+    t.integer "restaurant_id", null: false
+    t.integer "dish_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["dish_type_id"], name: "index_dishes_on_dish_type_id"
@@ -44,7 +41,7 @@ ActiveRecord::Schema.define(version: 2022_01_20_134454) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
