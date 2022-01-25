@@ -1,21 +1,21 @@
 %h1.heading-1
-  Menu
+  .text-cyan-700.text-2xl.font-semibold
+    MENU
 
 %h2.heading-2
   First dishes
 .grid.grid-cols-4.gap-4.justify-items-center
-  = render :partial => 'dishes/dish', :collection => @first_dishes, :as => :dish
-
+  = render :partial => 'dishes/dish', :collection => @second_dishes, :as => :dish
 %h2.heading-2
   Second dishes
 .grid.grid-cols-4.gap-4.justify-items-center
   = render :partial => 'dishes/dish', :collection => @second_dishes, :as => :dish
-  
+
 %h2.heading-2
   Salads
 .grid.grid-cols-4.gap-4.justify-items-center
   = render :partial => 'dishes/dish', :collection => @salads, :as => :dish
-  
+
 %h2.heading-2
   Deserts
 .grid.grid-cols-4.gap-4.justify-items-center
