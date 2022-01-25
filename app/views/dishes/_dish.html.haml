@@ -1,8 +1,18 @@
 %article.card
   %section
     .block
+      = image_tag dish.picture || ''
+    .block
       = dish.name
     .block
-      = dish.dish_type.name
+      = dish.describe
+    .block
+    Ціна:
+    = dish.price
+    грн
+    .block
+    Вага:
+    = dish.weight
+    г
   %section.mt-2
     =# link_to 'Show', dish_path(dish), class: 'btn'

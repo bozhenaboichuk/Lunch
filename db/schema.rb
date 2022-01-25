@@ -10,22 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_134454) do
+ActiveRecord::Schema.define(version: 2022_01_25_084633) do
+
 
   create_table "dish_order_lists", force: :cascade do |t|
     t.integer "order_id", null: false
     t.integer "dish_id", null: false
+
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["dish_id"], name: "index_dish_order_lists_on_dish_id"
     t.index ["order_id"], name: "index_dish_order_lists_on_order_id"
   end
 
+
   create_table "dish_types", force: :cascade do |t|
+
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
+
 
   create_table "dishes", force: :cascade do |t|
     t.decimal "price"
@@ -36,9 +41,11 @@ ActiveRecord::Schema.define(version: 2022_01_20_134454) do
     t.integer "dish_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "describe"
     t.index ["dish_type_id"], name: "index_dishes_on_dish_type_id"
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
   end
+
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -46,6 +53,7 @@ ActiveRecord::Schema.define(version: 2022_01_20_134454) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
+
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
@@ -56,6 +64,7 @@ ActiveRecord::Schema.define(version: 2022_01_20_134454) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
+
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"

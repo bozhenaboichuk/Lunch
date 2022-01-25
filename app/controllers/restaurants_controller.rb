@@ -10,7 +10,13 @@ class RestaurantsController < ApplicationController
     @second_dishes = @dishes.where(dish_type: DishType.find_by(name: 'second'))
     @salads = @dishes.where(dish_type: DishType.find_by(name: 'salad'))
     @deserts = @dishes.where(dish_type: DishType.find_by(name: 'desert'))
+    @pizza = @dishes.where(dish_type: DishType.find_by(name: 'pizza'))
+    @sushi = @dishes.where(dish_type: DishType.find_by(name: 'sushi'))
+    @drinks = @dishes.where(dish_type: DishType.find_by(name: 'drinks'))
+    @other_dishes = @dishes.where(dish_type: DishType.find_by(name: 'other_dishes'))
+    @sets = @dishes.where(dish_type: DishType.find_by(name: 'sets'))
   end
+
 
   private
 

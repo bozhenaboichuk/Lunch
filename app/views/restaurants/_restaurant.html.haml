@@ -1,6 +1,6 @@
 %article.card
   %section.text-center
-    = link_to (image_tag ('f.jpg')), restaurant_path(restaurant)
+    = link_to (image_tag restaurant.picture || ''), restaurant_path(restaurant)
     .block1.text-cyan-700.font-medium.text-ld
       = restaurant.name
     .block
