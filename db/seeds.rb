@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 def populate_dish_types
+  DishType.destroy_all
   DishType.create [{ name: "first" },
                    { name: "second" },
                    { name: "salad" },
@@ -14,6 +15,7 @@ def populate_dish_types
 end
 
 def populate_restaurants
+  Restaurant.destroy_all
   Restaurant.create [{ name: "Test restaurant1", address: "Test address1", phone_number: "12345" },
                      { name: "Test restaurant2", address: "Test address2", phone_number: "12345" },
                      { name: "Test restaurant3", address: "Test address3", phone_number: "12345" }, 
@@ -22,6 +24,7 @@ def populate_restaurants
 end
 
 def populate_dishes
+  Dish.destroy_all
   Dish.create [{ name: "Test first dish1 for restaurant1", dish_type: DishType.find_by(name: "first"), restaurant: Restaurant.first },
                { name: "Test second dish1 for restaurant1", dish_type: DishType.find_by(name: "second"), restaurant: Restaurant.first }, 
                { name: "Test salad1 for restaurant1", dish_type: DishType.find_by(name: "salad"), restaurant: Restaurant.first },
