@@ -1,10 +1,9 @@
 %article.card
-  %section
-    .block
+  %section.text-center
+    = link_to (image_tag ('f.jpg')), restaurant_path(restaurant)
+    .block1.text-cyan-700.font-medium.text-ld
       = restaurant.name
     .block
       = restaurant.address
     .block
       = restaurant.phone_number
-  %section.mt-2
-    = link_to 'Show', restaurant_path(restaurant), class: 'btn'
