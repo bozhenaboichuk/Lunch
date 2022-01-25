@@ -4,7 +4,6 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
   end
-
   def show
     @dishes = @restaurant.dishes.all.includes(:dish_type)
     @first_dishes = @dishes.where(dish_type: DishType.find_by(name: 'first'))
