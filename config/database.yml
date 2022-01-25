@@ -24,10 +24,11 @@ default-psql: &default-psql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['HOST'] %>
 
-development:
-  <<: *default-sqlite3
-  database: db/development.sqlite3
+# development:
+#   <<: *default-sqlite3
+#   database: db/development.sqlite3
 
 # development:
 #   <<: *default-mysql
@@ -35,9 +36,9 @@ development:
 #   username: lunch_app
 #   password: Bozhena27$
 
-# development:
-#   <<: *default-psql
-#   database: lunch_devel
+development:
+  <<: *default-psql
+  database: <%= ENV['DB_DEVEL_NAME'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -68,4 +69,4 @@ test:
 
 production:
   <<: *default-psql
-  database: lunch_prod
+  database: <%= ENV['DB_PROD_NAME']
