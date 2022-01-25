@@ -6,7 +6,6 @@
 .grid.grid-cols-4.gap-4.justify-items-center
   = render :partial => 'dishes/dish', :collection => @first_dishes, :as => :dish
 
-
 %h2.heading-2
   Second dishes
 .grid.grid-cols-4.gap-4.justify-items-center
@@ -21,3 +20,12 @@
   Deserts
 .grid.grid-cols-4.gap-4.justify-items-center
   = render :partial => 'dishes/dish', :collection => @deserts, :as => :dish
+
+-# = form_for.collection_select :restaurant_id, Restaurant.name do |f|
+-#   .control-group
+-#     = f.label :name, :class => "control-label"
+-#     .controls
+-#       = f.text_field :name
+-#   .control-group
+-#     .controls
+-#       = f.submit "submit", :class => "btn btn-primary"

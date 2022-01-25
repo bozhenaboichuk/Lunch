@@ -1,10 +1,6 @@
-%article.block.p-6.bg-white.rounded-lg.border.border-gray-200.shadow-md.hover:bg-gray-100.dark:bg-gray-800.dark:border-gray-700.dark:hover:bg-gray-700.sm:w-auto.ml-32.md:w-full.lg:w-80
+%article.block.p-6.bg-white.rounded-lg.border.border-gray-200.shadow-md.h-auto.hover:bg-gray-100.dark:bg-gray-800.dark:border-gray-700.dark:hover:bg-gray-700.sm:w-auto.ml-32.md:w-full.lg:w-80
   %section
     .block.text-sky-800
       = dish.name
-    .block.text-sm.text-cyan-900.font-mono.bg-teal-100.inline.rounded-full.px-2.float-left
-      = dish.dish_type.name
-  %section.flex.justify-between.items-center
-
-    = check_box_tag :check
-    =# link_to 'Show', dish_path(dish), class: 'btn'
+    .mt-6.inline-flex.items-center.py-2.px-3.text-sm.font-medium.text-white.bg-blue-700.rounded-lg.hover:bg-blue-800.focus:ring-4.focus:ring-blue-300.dark:bg-blue-600.dark:hover:bg-blue-700.dark:focus:ring-blue-800
+      =button_to 'Вибрати'
