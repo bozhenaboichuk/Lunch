@@ -11,11 +11,11 @@
 
     %body.text-gray-600
       .container.mx-auto
-        %header.p-4.border-b
+        %header.p-4.border-b.sticky.top-0.z-30.w-full.px-2.py-4.bg-white.sm:px-4.shadow-xl
           %nav.md:flex.md:justify-between.pt-2
             = link_to 'Lunch', root_path, class: 'text-gray-700 text-xl md:text-2xl font-bold uppercase'
-            %div
-              %ul.md:flex
+            %div.flex.items-center.space-x-1
+              %ul.md:flex.hidden.space-x-2.md:inline-flex
                 %li.md:mx-4.text-gray-700.font-bold.md:border-b
                   link1
                 %li.md:mx-4
