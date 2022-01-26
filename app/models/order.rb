@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
   belongs_to :user
-  has_many :dish_order_list
-  has_many :dishes, through: :dish_order_list
+  has_many :line_items, dependent: :destroy
+  has_many :dishes, through: :line_items
 end
