@@ -1,8 +1,8 @@
 %article.card
   %section
     .block
-      =# image_tag 'dish.picture' || '', onerror: {this.error = null}
-      %img{src: "/images/#{dish.picture}", alt: "#{dish.picture}"}
+      = image_tag dish.picture || ''
+      -# %img{src: "/images/#{dish.picture}", alt: "#{dish.picture}"}
     .block
       = dish.name
     .block
@@ -17,3 +17,4 @@
     г
   %section.mt-2
     =# link_to 'Show', dish_path(dish), class: 'btn'
+    -# = button_to 'Add to order', dish_order_lists_path(dish_id: dish)
