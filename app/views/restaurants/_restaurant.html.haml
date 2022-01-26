@@ -1,9 +1,16 @@
 %article.card
   %section.text-center
-    = link_to (image_tag restaurant.picture || ''), restaurant_path(restaurant)
+    -if restaurant.avatar.attached?
+      = link_to (image_tag restaurant.avatar), restaurant_path(restaurant)
+    - else
+      = link_to (image_tag restaurant.picture || ''), restaurant_path(restaurant)
     .block1.text-cyan-700.font-medium.text-ld
-      = restaurant.name
+      = link_to (restaurant.name), restaurant_path(restaurant)
     .block
       = restaurant.address
     .block
       = restaurant.phone_number
+    .block
+      = link_to "Edit", edit_restaurant_path(restaurant)
+      %br/
+      = link_to 'Delete', restaurant_path(restaurant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
