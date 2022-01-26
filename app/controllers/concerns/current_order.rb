@@ -1,0 +1,12 @@
+module CurrentOrder
+
+  private
+
+  def set_order
+    session[:init] = 'true'
+    @order = Order.find(session[:order_id])
+  rescue ActiveRecord::RecordNotFound
+    @order = Order.create user: current_user
+    session[:order_id] = @order.id
+  end
+end
