@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_26_115751) do
+ActiveRecord::Schema.define(version: 2022_01_26_134519) do
 
   create_table "dish_types", force: :cascade do |t|
     t.string "name"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2022_01_26_115751) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "completed"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
