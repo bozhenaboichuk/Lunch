@@ -11,13 +11,13 @@ class OrdersController < ApplicationController
 
   def create
     session.delete(:order_id)
-    redirect_to root_path
+    redirect_to root_path, status: :see_other
   end
 
   def destroy
     @order.destroy
     session.delete(:order_id)
-    redirect_to root_path
+    redirect_to root_path, status: :see_other
   end
 
   private

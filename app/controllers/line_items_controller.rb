@@ -10,7 +10,7 @@ class LineItemsController < ApplicationController
 
     if @line_item.save
       flash[:succes] = 'Dish was successfully added!'
-      redirect_to restaurant_path(dish.restaurant, anchor: dom_id(dish))
+      redirect_to restaurant_path(dish.restaurant, anchor: dom_id(dish)), status: :see_other
     else
       render :new
     end
@@ -19,6 +19,6 @@ class LineItemsController < ApplicationController
   def destroy
     line_item = LineItem.find params[:id]
     line_item.destroy
-    redirect_to order_path(line_item.order)
+    redirect_to order_path(line_item.order), status: :see_other
   end
 end
