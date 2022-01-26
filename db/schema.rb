@@ -10,16 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_25_084633) do
-
-  create_table "dish_order_lists", force: :cascade do |t|
-    t.integer "order_id", null: false
-    t.integer "dish_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["dish_id"], name: "index_dish_order_lists_on_dish_id"
-    t.index ["order_id"], name: "index_dish_order_lists_on_order_id"
-  end
+ActiveRecord::Schema.define(version: 2022_01_26_115751) do
 
   create_table "dish_types", force: :cascade do |t|
     t.string "name"
@@ -39,6 +30,15 @@ ActiveRecord::Schema.define(version: 2022_01_25_084633) do
     t.string "describe"
     t.index ["dish_type_id"], name: "index_dishes_on_dish_type_id"
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.integer "dish_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dish_id"], name: "index_line_items_on_dish_id"
+    t.index ["order_id"], name: "index_line_items_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -86,9 +86,9 @@ ActiveRecord::Schema.define(version: 2022_01_25_084633) do
     t.index ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "dish_order_lists", "dishes"
-  add_foreign_key "dish_order_lists", "orders"
   add_foreign_key "dishes", "dish_types"
   add_foreign_key "dishes", "restaurants"
+  add_foreign_key "line_items", "dishes"
+  add_foreign_key "line_items", "orders"
   add_foreign_key "orders", "users"
 end
