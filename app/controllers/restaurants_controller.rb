@@ -1,10 +1,9 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant!, except: %i[index new create]
+  before_action :set_restaurant!, except: %i[index new create edit]
 
   def index
     @restaurants = Restaurant.all
   end
-
 
   def new
     @restaurant = Restaurant.new
@@ -16,6 +15,19 @@ class RestaurantsController < ApplicationController
         redirect_to restaurants_path
       else
         render :new
+      end
+  end
+
+  def edit
+    @restaurant = Restaurant.find_by id: params[:id]
+  end
+
+  def update
+    @restaurant = Restaurant.find_by id: params[:id]
+      if @restaurant.update restaurant_params
+        redirect_to restaurants_path
+      else
+        render :edit
       end
   end
 
