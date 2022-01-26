@@ -1,3 +1,4 @@
+# coding: utf-8
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -79,7 +80,7 @@ def populate_dishes
 
 
                { name: "Садочок в асортименті 1л", dish_type: DishType.find_by(name: "drinks"), restaurant: Restaurant.first, picture:"1nsadochok.jpg", weight:1,price:37},
-               { name: "Сандора томатна 1л", dish_type: DishType.find_by(name: "drinks"), restaurant: Restaurant.first, picture:"1nsandora-tomat.jpeg", weight:1,price:48},
+               { name: "Сандора томатна 1л", dish_type: DishType.find_by(name: "drinks"), restaurant: Restaurant.first, picture:"1nsandora-tomat.jpg", weight:1,price:48},
                { name: "Сандора Фруктова 1л", dish_type: DishType.find_by(name: "drinks"), restaurant: Restaurant.first, picture:"1nsandora-fr.jpg", weight:1,price:48},
                { name: "7UP", dish_type: DishType.find_by(name: "drinks"), restaurant: Restaurant.first, picture:"1n7up.png", weight:1,price:28},
                { name: "Mirinda", dish_type: DishType.find_by(name: "drinks"), restaurant: Restaurant.first, picture:"1nmirinda.png", weight:1,price:28},
