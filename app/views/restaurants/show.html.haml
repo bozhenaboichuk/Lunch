@@ -1,31 +1,56 @@
 %h1.heading-1
-  Menu
+  Меню
 
-%h2.heading-2
-  First dishes
-.grid.grid-cols-4.gap-4.justify-items-center
-  = render :partial => 'dishes/dish', :collection => @first_dishes, :as => :dish
+- unless @pizza.empty?
+  %h2.heading-2
+    Піца
+  .grid.grid-cols-4.gap-4.justify-items-center
+    = render :partial => 'dishes/dish', :collection => @pizza, :as => :dish
 
-%h2.heading-2
-  Second dishes
-.grid.grid-cols-4.gap-4.justify-items-center
-  = render :partial => 'dishes/dish', :collection => @second_dishes, :as => :dish
+- unless @sushi.empty?
+  %h2.heading-2
+    Суші
+  .grid.grid-cols-4.gap-4.justify-items-center
+    = render :partial => 'dishes/dish', :collection => @sushi, :as => :dish
 
-%h2.heading-2
-  Salads
-.grid.grid-cols-4.gap-4.justify-items-center
-  = render :partial => 'dishes/dish', :collection => @salads, :as => :dish
+- unless @first_dishes.empty?
+  %h2.heading-2
+    Перші страви
+  .grid.grid-cols-4.gap-4.justify-items-center
+    = render :partial => 'dishes/dish', :collection => @first_dishes, :as => :dish
 
-%h2.heading-2
-  Deserts
-.grid.grid-cols-4.gap-4.justify-items-center
-  = render :partial => 'dishes/dish', :collection => @deserts, :as => :dish
+- unless @second_dishes.empty?
+  %h2.heading-2
+    Другі страви
+  .grid.grid-cols-4.gap-4.justify-items-center
+    = render :partial => 'dishes/dish', :collection => @second_dishes, :as => :dish
 
--# = form_for.collection_select :restaurant_id, Restaurant.name do |f|
--#   .control-group
--#     = f.label :name, :class => "control-label"
--#     .controls
--#       = f.text_field :name
--#   .control-group
--#     .controls
--#       = f.submit "submit", :class => "btn btn-primary"
+- unless @salads.empty?
+  %h2.heading-2
+    Салати
+  .grid.grid-cols-4.gap-4.justify-items-center
+    = render :partial => 'dishes/dish', :collection => @salads, :as => :dish
+
+- unless @other_dishes.empty?
+  %h2.heading-2
+    Інші страви
+  .grid.grid-cols-4.gap-4.justify-items-center
+    = render :partial => 'dishes/dish', :collection => @other_dishes, :as => :dish
+
+- unless @sets.empty?
+  %h2.heading-2
+    Сети
+  .grid.grid-cols-4.gap-4.justify-items-center
+    = render :partial => 'dishes/dish', :collection => @sets, :as => :dish
+
+- unless @drinks.empty?
+  %h2.heading-2
+    Напої
+  .grid.grid-cols-4.gap-4.justify-items-center
+    = render :partial => 'dishes/dish', :collection => @drinks, :as => :dish
+
+- unless @deserts.empty?
+  %h2.heading-2
+    Десерти
+  .grid.grid-cols-4.gap-4.justify-items-center
+    = render :partial => 'dishes/dish', :collection => @deserts, :as => :dish
