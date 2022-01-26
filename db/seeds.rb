@@ -21,11 +21,9 @@ def populate_dish_types
 end
 
 def populate_restaurants
-
   Restaurant.destroy_all
   Restaurant.create [{ name: "Пронто Піца", address: "вулиця Івасюка, 11", phone_number: "+380952775757", picture:"logo-pronto5f4dff025bafc.png" },
                      { name: "Десятка", address: "вулиця Шашкевича, 4", phone_number: "+380503738202", picture:"logodesiatka.png" }]
-
 end
 
 
@@ -88,9 +86,6 @@ def populate_dishes
                { name: "Пепсi", dish_type: DishType.find_by(name: "drinks"), restaurant: Restaurant.first, picture:"1npepsi.jpg", weight:2,price:44}
                ]
 end
-
-
-
 
 populate_restaurants
 populate_dish_types
