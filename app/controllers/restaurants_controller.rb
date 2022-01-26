@@ -1,10 +1,9 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant!, except: %i[index new create]
+  before_action :set_restaurant!, except: %i[index new create edit]
 
   def index
     @restaurants = Restaurant.all
   end
-
 
   def new
     @restaurant = Restaurant.new
@@ -18,6 +17,26 @@ class RestaurantsController < ApplicationController
         render :new
       end
   end
+
+  def edit
+    @restaurant = Restaurant.find_by id: params[:id]
+  end
+
+  def update
+    @restaurant = Restaurant.find_by id: params[:id]
+      if @restaurant.update restaurant_params
+        redirect_to restaurants_path
+      else
+        render :edit
+      end
+  end
+
+  def destroy
+    @restaurant = Restaurant.find_by id: params[:id]
+    @restaurant.destroy
+    redirect_to restaurants_path
+  end
+
 
   def show
     @dishes = @restaurant.dishes.all.includes(:dish_type)
@@ -40,6 +59,6 @@ class RestaurantsController < ApplicationController
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :phone_number, :address)
+    params.require(:restaurant).permit(:name, :phone_number, :address, :avatar)
   end
 end
