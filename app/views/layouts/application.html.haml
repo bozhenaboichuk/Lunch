@@ -16,12 +16,13 @@
             = link_to 'Lunch', root_path, class: 'text-white text-xl md:text-2xl mt-1 font-bold hover:text-cyan-200 uppercase'
             %div.hidden.sm:flex.items-center.space-x-1
               %ul.flex
-                %li.mx-5.text-white.font-bold.hover:text-cyan-200
-                  link1
+                - if current_user and session[:order_id]
+                  %li.mx-5.hover:text-cyan-200
+                    = link_to 'My order', order_path(session[:order_id])
                 %li.mx-5.hover:text-cyan-200
-                  link2
+                  = link_to 'History', orders_path
                 %li.mx-5.hover:text-cyan-200
-                  link3
+                  Profile
             %div.sm:hidden
               %button.flex.items-center.px-2.py-2.border.rounded.text-white.hover:text-white.hover:border-white.outline-none.mobile-menu-button
                 %svg.h-6.w-6{:fill => "none", :stroke => "currentColor", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
