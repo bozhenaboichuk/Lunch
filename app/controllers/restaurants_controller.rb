@@ -31,6 +31,13 @@ class RestaurantsController < ApplicationController
       end
   end
 
+  def destroy
+    @restaurant = Restaurant.find_by id: params[:id]
+    @restaurant.destroy
+    redirect_to restaurants_path
+  end
+
+
   def show
     @dishes = @restaurant.dishes.all.includes(:dish_type)
     @first_dishes = @dishes.where(dish_type: DishType.find_by(name: 'first'))
