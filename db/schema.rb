@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2022_01_25_084633) do
 
-
   create_table "dish_order_lists", force: :cascade do |t|
     t.integer "order_id", null: false
     t.integer "dish_id", null: false
