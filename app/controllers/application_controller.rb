@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include ActionView::RecordIdentifier
+  
   def after_sign_in_path_for(resource)
     # if current_user.has_role?(:admin)
     #   dashboard_path
