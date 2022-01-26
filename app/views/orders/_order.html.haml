@@ -1,0 +1,10 @@
+.card
+  %p.mb-2 User:
+  = order.user.email
+  %p.mb-2.mt-3 Date:
+  = order.created_at
+  %p.mb-2.mt-3 Dishes ordered:
+  %ol
+  - order.dishes.each do |dish|
+    %li
+      = dish.name
