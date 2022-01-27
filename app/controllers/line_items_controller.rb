@@ -9,8 +9,8 @@ class LineItemsController < ApplicationController
     @line_item = @order.line_items.build(dish: dish)
 
     if @line_item.save
-      flash[:succes] = 'Dish was successfully added!'
-      redirect_to restaurant_path(dish.restaurant, anchor: dom_id(dish)), status: :see_other
+      notice = 'Dish was successfully added!'
+      redirect_to restaurant_path(dish.restaurant, anchor: dom_id(dish)), status: :see_other, notice: notice
     else
       render :new
     end

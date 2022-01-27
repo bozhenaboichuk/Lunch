@@ -1,16 +1,20 @@
 %h1.heading-1
   My current order
 
-%ol
-  - @order.line_items.each do |item|
-    %li.my-2.flex
-      = item.dish.name
-      = link_to 'Delete', line_item_path(item), data: {'turbo-method': :delete}, class: 'ml-2'
+.flex.justify-center
+  .card
+    %section.mb-5
+      %ol
+        - @order.line_items.each do |item|
+          %li.my-3.flex
+            = item.dish.name
+            = link_to 'Remove', line_item_path(item), data: {'turbo-method': :delete}, class: 'btn-sm ml-2'
 
-.flex
-  - if @order.dishes.present?
-    = link_to 'Back to dishes', restaurant_path(@order.dishes.last.restaurant), class: 'btn'
-  - else
-    = link_to 'Home', root_path, class: 'btn'
-  = button_to 'Complete', orders_path, class: 'ml-2 btn'
-  = link_to 'Cancel', order_path(@order), data: {'turbo-method': :delete}, class: 'ml-2 btn'
+    %section
+      .flex
+        - if @order.dishes.present?
+          = link_to 'Back to dishes', restaurant_path(@order.dishes.last.restaurant), class: 'btn'
+        - else
+          = link_to 'Home', root_path, class: 'btn'
+        = button_to 'Complete', orders_path, class: 'ml-2 btn'
+        = link_to 'Cancel', order_path(@order), data: {'turbo-method': :delete}, class: 'ml-2 btn'

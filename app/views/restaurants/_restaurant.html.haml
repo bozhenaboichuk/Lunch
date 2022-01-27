@@ -1,16 +1,20 @@
-%article.card
-  %section.text-center
+%article.card.col-span-1
+  %section.mb-4
     -if restaurant.avatar.attached?
-      = link_to (image_tag restaurant.avatar), restaurant_path(restaurant)
+      = link_to (image_tag restaurant.avatar, size: '200x200'), restaurant_path(restaurant)
     - else
-      = link_to (image_tag restaurant.picture || ''), restaurant_path(restaurant)
-    .block1.text-cyan-700.font-medium.text-ld
+      = link_to (image_tag restaurant.picture || '', size: '200x200'), restaurant_path(restaurant)
+
+  %section.mb-4
+    .block1.text-cyan-700.font-medium.text-ld.mb-2
       = link_to (restaurant.name), restaurant_path(restaurant)
-    .block
+    .block.mb-2
       = restaurant.address
     .block
       = restaurant.phone_number
-    .block
-      = link_to "Edit", edit_restaurant_path(restaurant)
-      %br/
-      = link_to 'Delete', restaurant_path(restaurant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+
+  %section.flex
+    = link_to "Edit", edit_restaurant_path(restaurant), class: 'btn mr-2'
+    %br
+    = link_to 'Delete', restaurant_path(restaurant),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn'
