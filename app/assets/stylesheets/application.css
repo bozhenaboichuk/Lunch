@@ -17,3 +17,11 @@
 .btn {
   @apply text-sm rounded-full p-1 lowercase border border-indigo-500 hover:bg-indigo-500 hover:text-white
 }
+
+.form{
+  @apply bg-white  focus:outline-none  border-2 border-white rounded-lg py-1 px-3  w-full appearance-none leading-normal
+}
+
+.form-btn{
+  @apply bg-cyan-800 hover:bg-cyan-600 p-2 px-5 text-white text-lg rounded
+}
