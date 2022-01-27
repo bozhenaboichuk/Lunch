@@ -10,29 +10,50 @@
     = javascript_importmap_tags
 
     %body.text-gray-600
-      .container.mx-auto
-        %header.p-4.border-b
-          %nav.md:flex.md:justify-between.pt-2
-            = link_to 'Lunch', root_path, class: 'text-gray-700 text-xl md:text-2xl font-bold uppercase'
-            %div
-              %ul.md:flex
-                %li.md:mx-4.text-gray-700.font-bold.md:border-b
-                  link1
-                %li.md:mx-4
-                  link2
-                %li.md:mx-4
-                  link3
+      %header.p-4.border-b.sticky.bg-cyan-700.fixed.top-0.shadow-xl
+        %nav.flex.justify-between.text-white
+          = link_to 'Lunch', root_path, class: 'text-white text-xl md:text-2xl mt-1 font-bold hover:text-cyan-200 uppercase'
+          %div.hidden.sm:flex.items-center.space-x-1
+            %ul.flex
+              - if current_user and session[:order_id]
+                %li.mx-5.hover:text-cyan-200
+                  = link_to 'My order', order_path(session[:order_id])
+              %li.mx-5.hover:text-cyan-200
+                = link_to 'History', orders_path
+              %li.mx-5.hover:text-cyan-200
+                Profile
+          %div.sm:hidden
+            %button.flex.items-center.px-2.py-2.border.rounded.text-white.hover:text-white.hover:border-white.outline-none.mobile-menu-button
+              %svg.h-6.w-6{:fill => "none", :stroke => "currentColor", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+                %path{:d => "M4 6h16M4 12h16M4 18h16", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2"}
+        %div.mobile-menu.hidden.sm:hidden.text.text-white
+          .block-inline.py-2.px-4.text-sm.hover:bg-cyan-900
+            link1
+          .block-inline.py-2.px-4.text-sm.hover:bg-cyan-900
+            link2
+          .block-inline.py-2.px-4.text-sm.hover:bg-cyan-900
+            link1
 
-        %main.p-8.bg-gray-100
+          :javascript
+            const btn = document.querySelector("button.mobile-menu-button");
+            const menu = document.querySelector(".mobile-menu");
 
-          %p.notice
-            = notice
-          %p.alert
-            = alert
+            btn.addEventListener("click", () => { menu.classList.toggle("hidden");});
+            
+      %main.p-8.bg-sky-200
 
-          %section.container
-            = yield
+        - if notice
+          .flex
+            .notice
+              = notice
+        - if alert
+          .flex
+            .alert
+              = alert
 
-        %footer.py-8.text-xl.font-light.border-t.text-center
-          &copy;
-          = "Copyrignt #{Time.now.year} Lunch"
+        %section
+          = yield
+
+      %footer.py-8.text-xl.text-white.font-medium.border-t.text-center.bg-cyan-700
+        &copy;
+        = "Copyrignt #{Time.now.year} LUNCH"

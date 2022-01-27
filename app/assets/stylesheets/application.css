@@ -3,17 +3,38 @@
 @tailwind utilities;
 
 .heading-1 {
-  @apply text-gray-700 text-4xl font-light mb-8 text-center
+  @apply text-gray-700 text-4xl font-light mb-8 text-center;
 }
 
 .heading-2 {
-  @apply text-gray-700 text-2xl font-light mb-8 text-center
+  @apply text-gray-700 text-2xl font-light mb-8 text-center;
 }
 
 .card {
-  @apply shadow bg-white rounded p-4
+  @apply shadow bg-white rounded p-4;
 }
 
 .btn {
-  @apply text-sm rounded-full p-1 lowercase border border-indigo-500 hover:bg-indigo-500 hover:text-white
+  @apply py-2 px-3 text-sm font-medium text-white bg-blue-700;
+  @apply rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300;
+  @apply dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800;
+}
+
+.btn-sm {
+  @apply px-1 text-sm text-white bg-blue-700;
+  @apply rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300;
+  @apply dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800;
+}
+
+.adaptive-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3;
+  @apply lg:grid-cols-4 xl:grid-cols-5 gap-5;
+}
+
+.notice {
+  @apply bg-green-100 p-2 rounded-lg border-2 border-green-500;
+}
+
+.alert {
+  @apply bg-orange-100 p-2 rounded-lg border-2 border-orange-500;
 }

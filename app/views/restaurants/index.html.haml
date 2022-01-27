@@ -1,5 +1,9 @@
 %h1.heading-1
   Restaurants
 
-.grid.grid-cols-4.gap-4.justify-items-center
+.adaptive-grid
   = render @restaurants
+
+%section.mt-6
+  .flex
+    = link_to "Додати заклад", new_restaurant_path, class: 'btn'

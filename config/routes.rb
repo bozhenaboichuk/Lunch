@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :dishes
   end
+
+  resources :line_items
+
+  resources :orders
   
   root "restaurants#index"
 end

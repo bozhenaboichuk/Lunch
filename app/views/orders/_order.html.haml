@@ -1,0 +1,22 @@
+.card.hover:bg-gray-100
+  %section.mb-3
+    %p.mb-2
+      = order.user.email
+    %p.mb-2
+      = order.created_at.strftime("%Y-%m-%d")
+      
+    %section.px-2.mb-2
+      %ol
+      - order.dishes.each do |dish|
+        %li
+          = dish.name
+          
+    %p
+      - if order.completed == true
+        = 'completed'
+      - else
+        = 'pending'
+        
+  %section.flex
+    = link_to 'Toggle status', order_path(order), data: {'turbo-method': :patch}, class: 'btn'
+    = link_to 'Delete', order_path(order), data: {'turbo-method': :delete}, class: 'btn ml-2'

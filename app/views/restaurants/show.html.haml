@@ -1,22 +1,14 @@
 %h1.heading-1
-  Menu
+  Меню
 
-%h2.heading-2
-  First dishes
-.grid.grid-cols-4.gap-4.justify-items-center
-  = render :partial => 'dishes/dish', :collection => @first_dishes, :as => :dish
-
-%h2.heading-2
-  Second dishes
-.grid.grid-cols-4.gap-4.justify-items-center
-  = render :partial => 'dishes/dish', :collection => @second_dishes, :as => :dish
-  
-%h2.heading-2
-  Salads
-.grid.grid-cols-4.gap-4.justify-items-center
-  = render :partial => 'dishes/dish', :collection => @salads, :as => :dish
-  
-%h2.heading-2
-  Deserts
-.grid.grid-cols-4.gap-4.justify-items-center
-  = render :partial => 'dishes/dish', :collection => @deserts, :as => :dish
+- unless user_signed_in?
+  .flex
+    = link_to 'Log in to order food', new_user_session_path, class: 'btn'
+    
+- @types.all.each do |type|
+  - @dishes = @restaurant.dishes.where dish_type: type
+  - unless @dishes.empty?
+    %h2.heading-2.my-8
+      = type.name
+    .adaptive-grid
+      = render @dishes
