@@ -1,5 +1,9 @@
 %h1.heading-1
   Меню
+
+- unless user_signed_in?
+  .flex
+    = link_to 'Log in to order food', new_user_session_path, class: 'btn'
     
 - @types.all.each do |type|
   - @dishes = @restaurant.dishes.where dish_type: type
