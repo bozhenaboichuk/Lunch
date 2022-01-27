@@ -12,13 +12,15 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
+  def account_update(resource, params)
+    resource.update_without_password(params)
+  end
+
   before_action :configure_permitted_paramters, if: :devise_controller?
 
   protected
     def configure_permitted_paramters
-        #devise_parameter_sanitizer.permit(:edit, keys: [:first_name,:last_name,:phone_number,:email, :password, :avatar])
-        devise_parameter_sanitizer.permit(:edit) { |u| u.permit({ roles: [] }, :first_name,:last_name,:phone_number,:email, :password, :avatar)}
-        devise_parameter_sanitizer.permit(:update) { |u| u.permit({ roles: [] }, :first_name,:last_name,:phone_number,:email, :password, :avatar)}
+        devise_parameter_sanitizer.permit(:account_update, keys: [:first_name,:last_name,:phone_number,:email, :password, :avatar])
     end
 
 
