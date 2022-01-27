@@ -16,5 +16,6 @@
       = dish.weight
       г
   %section
-    .inline-flex.items-center.py-2.px-3.text-sm.font-medium.text-white.bg-blue-700.rounded-lg.hover:bg-blue-800.focus:ring-4.focus:ring-blue-300.dark:bg-blue-600.dark:hover:bg-blue-700.dark:focus:ring-blue-800
-      =button_to 'Вибрати', line_items_path(dish_id: dish), class: 'btn'
+    .flex
+      - if user_signed_in?
+        = button_to 'Вибрати', line_items_path(dish_id: dish), class: 'btn'
