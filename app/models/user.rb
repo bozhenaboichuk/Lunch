@@ -4,4 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :orders
+  has_one_attached :avatar
+
+  def avatar_thumbnail
+    if avatar.attached?
+      avatar.variant(resize_to_fill: [150, nil]).processed
+    else
+      "/default.jpg"
+    end
+  end
+
 end
