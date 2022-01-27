@@ -42,10 +42,14 @@
             
       %main.p-8.bg-sky-200
 
-        %p.notice
-          = notice
-        %p.alert
-          = alert
+        - if notice
+          .flex
+            .notice
+              = notice
+        - if alert
+          .flex
+            .alert
+              = alert
 
         %section
           = yield
