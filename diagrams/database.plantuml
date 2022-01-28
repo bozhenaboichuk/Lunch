@@ -46,9 +46,10 @@ entity DishType {
 entity Order {
 	* id : number <<generated>>
 	* user_id : number <<FK>>
+	* completed : boolean
 }
 
-entity DishOrderList {
+entity LineItem {
 	* id : number <<generated>>
 	--
 	* order_id : number <<FK>>
@@ -58,7 +59,7 @@ entity DishOrderList {
 Restaurant |o..o{ Dish
 DishType |o..o{ Dish
 User |o..o{ Order
-DishOrderList }o..o{ Order
-DishOrderList }o..o{ Dish
+LineItem }o..o{ Order
+LineItem }o..o{ Dish
 		
 @enduml
