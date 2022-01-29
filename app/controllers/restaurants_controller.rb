@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_restaurant!, except: %i[index new create edit]
 
   def index
