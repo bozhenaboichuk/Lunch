@@ -41,6 +41,7 @@ entity Dish {
 entity DishType {
 	* id : number <<generated>>
 	* name : string
+	heading : string
 }
 
 entity Order {
