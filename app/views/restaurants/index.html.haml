@@ -6,4 +6,5 @@
 
 %section.mt-6
   .flex
-    = link_to "Додати заклад", new_restaurant_path, class: 'btn'
+    - if user_signed_in?
+      = link_to "Додати заклад", new_restaurant_path, class: 'btn'

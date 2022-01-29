@@ -14,7 +14,7 @@
       = restaurant.phone_number
 
   %section.flex
-    = link_to "Edit", edit_restaurant_path(restaurant), class: 'btn mr-2'
-    %br
-    = link_to 'Delete', restaurant_path(restaurant),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn'
+    - if user_signed_in?
+      = link_to "Edit", edit_restaurant_path(restaurant), class: 'btn mr-2'
+      = link_to 'Delete', restaurant_path(restaurant),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn'
