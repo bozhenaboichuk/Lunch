@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_order!, only: %i[show destroy update]
+  before_action :authorize_order
 
   def index
     @orders = Order.order(created_at: :desc)
@@ -11,7 +12,7 @@ class OrdersController < ApplicationController
 
   def create
     session.delete(:order_id)
-    redirect_to root_path, status: :see_other
+    redirect_to request.referer || root_path, status: :see_other
   end
 
   def update
@@ -27,10 +28,14 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     session.delete(:order_id)
-    redirect_to orders_path, status: :see_other
+    redirect_to request.referer || orders_path, status: :see_other
   end
 
   private
+
+  def authorize_order
+    authorize(@order || Order)
+  end
 
   def set_order!
     @order = Order.find params[:id]
