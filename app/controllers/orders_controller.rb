@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     session.delete(:order_id)
-    redirect_to request.referer || orders_path, status: :see_other
+    redirect_to orders_path, status: :see_other
   end
 
   private
