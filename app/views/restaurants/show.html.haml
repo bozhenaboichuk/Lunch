@@ -1,6 +1,6 @@
 %h1.heading-1
   Меню
-    
+
 - @types.all.each do |type|
   - @dishes = @restaurant.dishes.where dish_type: type
   - unless @dishes.empty?
@@ -8,3 +8,22 @@
       = type.name
     .grid.grid-cols-4.gap-4.justify-items-center
       = render @dishes
+
+= form_with model: [@restaurant, @dish] do |f|
+  = f.label :name
+  %br/
+  = f.text_area :name, class: "form-control"
+  %br/
+  = f.label :price
+  %br/
+  = f.text_area :price, class: "form-control"
+  %br/
+  = f.label :weight
+  %br/
+  = f.text_area :weight, class: "form-control"
+  %br/
+  = f.label :avatar
+  %br/
+  = f.file_field :avatar, class: "form-control"
+  %br/
+  = f.submit "save"
