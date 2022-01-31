@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
+  include CurrentOrder
+  
   before_action :authenticate_user!
   before_action :set_order!, only: %i[show destroy update]
+  before_action :set_current_order, only: :create
   before_action :authorize_order
 
   def index
@@ -12,7 +15,7 @@ class OrdersController < ApplicationController
 
   def create
     session.delete(:order_id)
-    redirect_to request.referer || root_path, status: :see_other
+    redirect_to orders_path, status: :see_other
   end
 
   def update
