@@ -16,5 +16,7 @@
           = link_to 'Back to dishes', restaurant_path(@order.dishes.last.restaurant), class: 'btn'
         - else
           = link_to 'Home', root_path, class: 'btn'
-        = button_to 'Complete', orders_path, class: 'ml-2 btn'
-        = link_to 'Cancel', order_path(@order), data: {'turbo-method': :delete}, class: 'ml-2 btn'
+        - if policy(@order).create?
+          = button_to 'Complete', orders_path, class: 'ml-2 btn'
+        - if policy(@order).destroy?
+          = link_to 'Cancel', order_path(@order), data: {'turbo-method': :delete}, class: 'ml-2 btn'
