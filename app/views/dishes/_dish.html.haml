@@ -1,20 +1,21 @@
-%article.block.p-6.bg-white.rounded-lg.border.border-gray-200.shadow-md.h-auto.hover:bg-gray-100.dark:bg-gray-800.dark:border-gray-700.dark:hover:bg-gray-700.sm:w-auto.ml-32.md:w-full.lg:w-80{id: dom_id(dish)}
-  %section
+%article.card.hover:bg-gray-100{id: dom_id(dish)}
+  %section.mb-4
     .block
-      = image_tag dish.picture || ''
-      -# %img{src: "/images/#{dish.picture}", alt: "#{dish.picture}"}
-    .block
+      = image_tag dish.picture || '', size: '150x150'
+  %section.mb-4
+    .block.text-cyan-700.mb-2
       = dish.name
-    .block
+    .block.mb-2
       = dish.describe
+    .block.mb-2
+      Ціна:
+      = dish.price
+      грн
     .block
-    Ціна:
-    = dish.price
-    грн
-    .block
-    Вага:
-    = dish.weight
-    г
-  %section.mt-2
-    .mt-6.inline-flex.items-center.py-2.px-3.text-sm.font-medium.text-white.bg-blue-700.rounded-lg.hover:bg-blue-800.focus:ring-4.focus:ring-blue-300.dark:bg-blue-600.dark:hover:bg-blue-700.dark:focus:ring-blue-800
-      =button_to 'Вибрати', line_items_path(dish_id: dish), class: 'btn'
+      Вага:
+      = dish.weight
+      г
+  %section
+    .flex
+      - if user_signed_in?
+        = button_to 'Вибрати', line_items_path(dish_id: dish), class: 'btn'
