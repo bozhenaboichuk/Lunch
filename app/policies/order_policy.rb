@@ -1,6 +1,6 @@
 class OrderPolicy < ApplicationPolicy
   def create?
-    !user.guest?
+    user == record.user || user.admin_role?
   end
 
   def update?
