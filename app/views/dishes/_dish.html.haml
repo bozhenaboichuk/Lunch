@@ -1,7 +1,8 @@
 %article.block.p-6.bg-white.rounded-lg.border.border-gray-200.shadow-md.h-auto.hover:bg-gray-100.dark:bg-gray-800.dark:border-gray-700.dark:hover:bg-gray-700.sm:w-auto.ml-32.md:w-full.lg:w-80{id: dom_id(dish)}
   %section
     .block
-      = image_tag dish.picture || ''
+    -if dish.avatar.attached?
+      = image_tag dish.avatar
       -# %img{src: "/images/#{dish.picture}", alt: "#{dish.picture}"}
     .block
       = dish.name
