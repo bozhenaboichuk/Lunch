@@ -1,5 +1,5 @@
 %h1.heading-1
-  My current order
+  = "Order ##{@order.id}"
 
 .flex.justify-center
   .card
@@ -8,7 +8,8 @@
         - @order.line_items.each do |item|
           %li.my-3.flex
             = item.dish.name
-            = link_to 'Remove', line_item_path(item), data: {'turbo-method': :delete}, class: 'btn-sm ml-2'
+            - if policy(@order).destroy?
+              = link_to 'Remove', line_item_path(item), data: {'turbo-method': :delete}, class: 'btn-sm ml-2'
 
     %section
       .flex
