@@ -38,3 +38,11 @@
 .alert {
   @apply bg-orange-100 p-2 rounded-lg border-2 border-orange-500;
 }
+
+.form{
+  @apply bg-white  focus:outline-none  border-2 border-white rounded-lg py-1 px-3  w-full appearance-none leading-normal
+}
+
+.form-btn{
+  @apply bg-cyan-800 hover:bg-cyan-600 p-2 px-5 text-white text-lg rounded
+}
