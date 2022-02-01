@@ -15,6 +15,12 @@ class DishesController < ApplicationController
       end
     end
 
+    def destroy
+      dish = @restaurant.dishes.find params[:id]
+      dish.destroy
+      redirect_to restaurants_path
+    end
+
   private
 
   def set_restaurant!

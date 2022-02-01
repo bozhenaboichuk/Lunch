@@ -3,7 +3,8 @@
     .block
     -if dish.avatar.attached?
       = image_tag dish.avatar
-      -# %img{src: "/images/#{dish.picture}", alt: "#{dish.picture}"}
+    -else
+      %img{src: "/images/#{dish.picture}", alt: "#{dish.picture}"}
     .block
       = dish.name
     .block
@@ -19,3 +20,5 @@
   %section.mt-2
     .mt-6.inline-flex.items-center.py-2.px-3.text-sm.font-medium.text-white.bg-blue-700.rounded-lg.hover:bg-blue-800.focus:ring-4.focus:ring-blue-300.dark:bg-blue-600.dark:hover:bg-blue-700.dark:focus:ring-blue-800
       =button_to 'Вибрати', line_items_path(dish_id: dish), class: 'btn'
+      %br/
+      = link_to 'Delete', restaurant_dish_path(@restaurant, dish), data: {turbo_method: :delete, confirm: "Are you sure?"}
