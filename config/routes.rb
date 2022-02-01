@@ -15,4 +15,9 @@ Rails.application.routes.draw do
 
   root "restaurants#index"
 
+  scope "admin" do
+    get "users", to: "users#index"
+    delete "users/:id", to: "users#destroy"
+  end
+
 end
