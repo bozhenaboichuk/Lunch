@@ -11,7 +11,20 @@
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form' %>
         </div>
 
+        <div class="field block mb-2 text-cyan-600">
+          <%= f.label :first_name %><br />
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class:'form' %>
+        </div>
 
+        <div class="field block mb-2 text-cyan-600">
+          <%= f.label :last_name %><br />
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class:'form' %>
+        </div>
+
+        <div class="field block mb-2 text-cyan-600">
+          <%= f.label :phone_number %><br />
+          <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class:'form' %>
+        </div>
 
         <div class="field block mb-2  text-cyan-600">
           <%= f.label :password %>
