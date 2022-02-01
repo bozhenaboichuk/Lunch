@@ -18,7 +18,7 @@ class DishesController < ApplicationController
     def destroy
       dish = @restaurant.dishes.find params[:id]
       dish.destroy
-      redirect_to restaurants_path
+      redirect_to restaurant_path(@restaurant), status: :see_other
     end
 
   private
@@ -28,7 +28,7 @@ class DishesController < ApplicationController
   end
 
   def dish_params
-    params.require(:dish).permit(:price, :weight, :name, :avatar, :dish_type_id)
+    params.require(:dish).permit(:price, :weight, :describe, :name, :avatar, :dish_type_id)
   end
 
 end
