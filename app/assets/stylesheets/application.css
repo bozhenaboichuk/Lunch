@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .heading-1 {
-  @apply text-gray-700 text-4xl font-light mb-8 text-center
+  @apply text-cyan-700 text-4xl font-bold mb-8 text-center
 }
 
 .heading-2 {
-  @apply text-gray-700 text-2xl font-light mb-8 text-center
+  @apply text-cyan-700 text-2xl font-light mb-8 text-center
 }
 
 .card {

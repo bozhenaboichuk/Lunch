@@ -1,10 +1,10 @@
 %h1.heading-1
   Меню
-    
+
 - @types.all.each do |type|
   - @dishes = @restaurant.dishes.where dish_type: type
   - unless @dishes.empty?
     %h2.heading-2.my-8
       = type.name
-    .grid.grid-cols-4.gap-4.justify-items-center
+    .grid.xl:grid-cols-4.lg:grid-cols-4.gap-4.md:grid-cols-3.sm:grid-cols-2.grid-cols-1.justify-items-center
       = render @dishes
