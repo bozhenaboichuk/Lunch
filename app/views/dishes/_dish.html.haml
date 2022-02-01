@@ -1,5 +1,3 @@
-/ cards of dishes
-
 %article.card.block.p-6.bg-white.rounded-lg.border.border-gray-200.shadow-md.h-auto.hover:bg-gray-100.dark:bg-white.dark:border-cyan-900.dark:hover:bg-blue-200.sm:w-auto.md:w-full.lg:w-80{id: dom_id(dish)}
   %section.text-center
     .block.bg-white.flex.justify-center.items-center
@@ -7,16 +5,16 @@
       -# %img{src: "/images/#{dish.picture}", alt: "#{dish.picture}"}
     .block.text-cyan-700.font-bold.text-xl
       = dish.name
-    .block
+    .block.mb-2
       = dish.describe
+    .block.mb-2
+      Ціна:
+      = dish.price
+      грн
     .block
-    Ціна:
-    = dish.price
-    грн
-    .block
-    Вага:
-    = dish.weight
-    г
+      Вага:
+      = dish.weight
+      г
   %div.justify-center.items-center.flex
     %button.mt-3
       = button_to line_items_path(dish_id: dish) do

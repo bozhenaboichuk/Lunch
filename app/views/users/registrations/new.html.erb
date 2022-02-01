@@ -1,4 +1,4 @@
-<section class="flex h-screen bg-sky-200 ">
+<section class="bg-sky-200 ">
     <div class="w-full max-w-xs m-auto bg-sky-100 rounded p-5">
       <h2 class="text-3xl mb-4 font-medium text-center text-cyan-800">Sign up</h2>
 
@@ -8,24 +8,26 @@
 
         <div class="field block mb-2 text-cyan-600 ">
           <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'bg-white  focus:outline-none  border-2 border-white rounded-lg py-1 px-3 block w-full appearance-none leading-normal' %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form' %>
         </div>
+
+
 
         <div class="field block mb-2  text-cyan-600">
           <%= f.label :password %>
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
           <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password", class:'bg-white  focus:outline-none  border-2 border-white rounded-lg py-1 px-3 block w-full appearance-none leading-normal' %>
+          <%= f.password_field :password, autocomplete: "new-password", class:'form' %>
         </div>
 
         <div class="field block mb-2  text-cyan-600">
           <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'bg-white  focus:outline-none  border-2 border-white rounded-lg py-1 px-3 block w-full appearance-none leading-normal' %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form' %>
         </div>
 
         <div class="actions">
-          <%= f.submit "Create account" , class:'bg-cyan-800 hover:bg-cyan-600 p-2 px-5 text-white text-lg rounded'%>
+          <%= f.submit "Create account" , class:'form-btn'%>
         </div>
 
       <% end %>
