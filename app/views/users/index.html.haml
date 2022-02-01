@@ -1,0 +1,11 @@
+- @users.each do |user|
+  .block
+    Користувач:
+    = user.first_name
+  .block
+    E-mail:
+    = user.email
+  .block
+    - if policy(user).destroy?
+      = link_to 'Delete', user_path(user), data: {'turbo-method': :delete}, class: 'btn ml-2'
+  %br/
