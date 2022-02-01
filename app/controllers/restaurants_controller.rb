@@ -41,6 +41,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @types = DishType.all
+    @dish = @restaurant.dishes.build
   end
 
   private
