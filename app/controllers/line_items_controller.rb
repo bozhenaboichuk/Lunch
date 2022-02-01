@@ -20,7 +20,7 @@ class LineItemsController < ApplicationController
 
   def destroy
     @line_item.destroy
-    redirect_to order_path(line_item.order), status: :see_other
+    redirect_to order_path(@line_item.order), status: :see_other
   end
 
   private
