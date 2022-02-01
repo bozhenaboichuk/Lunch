@@ -21,10 +21,14 @@
           -# %img(src="Lunch.png")
           -# = image_tag('images/Lunch', class:"img-responsive img-circle")
 
-        %p.notice
-          = notice
-        %p.alert
-          = alert
+        - if notice
+          .flex
+            .notice.ml-6
+              = notice
+        - if alert
+          .flex
+            .alert.ml-6
+              = alert
 
         = yield
 

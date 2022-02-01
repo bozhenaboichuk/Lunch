@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+
+
   devise_for :users
   devise_for :views
+  resources :users
 
   resources :restaurants do
     resources :dishes
@@ -11,4 +14,5 @@ Rails.application.routes.draw do
   resources :orders
 
   root "restaurants#index"
+
 end
