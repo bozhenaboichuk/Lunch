@@ -15,6 +15,11 @@ class DishesController < ApplicationController
       end
     end
 
+    def new
+      @dish = @restaurant.dishes.build
+    end
+
+
     def destroy
       dish = @restaurant.dishes.find params[:id]
       dish.destroy
