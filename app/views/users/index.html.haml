@@ -16,8 +16,8 @@
         Роль:
         = user.role
       .block
-        - if policy(user).destroy?
+        - if policy(:admin_user).destroy?
           = link_to 'Delete', admin_user_path(user), data: {'turbo-method': :delete}, class: 'btn ml-2'
       .block
-        - if policy(user).change?
+        - if policy(:admin_user).change?
           = link_to 'Change role', admin_user_path(user), data: {'turbo-method': :patch}, class: 'btn ml-2'

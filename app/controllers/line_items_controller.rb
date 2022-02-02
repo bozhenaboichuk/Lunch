@@ -26,7 +26,7 @@ class LineItemsController < ApplicationController
   private
 
   def authorize_line_item
-    authorize(@order || @line_item.order || Order)
+    authorize(@line_item || LineItem)
   end
 
   def set_line_item!

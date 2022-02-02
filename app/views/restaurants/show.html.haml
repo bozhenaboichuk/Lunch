@@ -1,9 +1,11 @@
 %h1.heading-1
   Меню
-= link_to 'Додати страву', new_restaurant_dish_path(@restaurant), class: 'btn'
-- unless user_signed_in?
-  .flex
+  
+.flex
+  - unless user_signed_in?
     = link_to 'Log in to order food', new_user_session_path, class: 'btn'
+  - if policy(:dish).create?
+    = link_to 'Додати страву', new_restaurant_dish_path(@restaurant), class: 'btn'
 
 - @types.all.each do |type|
   - @dishes = @restaurant.dishes.where dish_type: type
