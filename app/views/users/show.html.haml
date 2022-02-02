@@ -1,19 +1,20 @@
-- if current_user.avatar.attached?
-  = image_tag(current_user.avatar_thumbnail)
-- else
-  = image_tag("default.jpg")
-.block
-  Ім'я:
-  = @user.first_name
-.block
-  Прізвище:
-  = @user.last_name
-.block
-  E-mail:
-  = @user.email
-.block
-  Телефон:
-  = @user.phone_number
-.block
-  %button.form-btn
-    = link_to "Редагувати дані".html_safe, edit_user_registration_path
+%div.h-140
+  - if current_user.avatar.attached?
+    = image_tag(current_user.avatar_thumbnail)
+  - else
+    = image_tag("default.jpg")
+  .block
+    Ім'я:
+    = @user.first_name
+  .block
+    Прізвище:
+    = @user.last_name
+  .block
+    E-mail:
+    = @user.email
+  .block
+    Телефон:
+    = @user.phone_number
+  .block
+    %button.form-btn
+      = link_to "Редагувати дані".html_safe, edit_user_registration_path
