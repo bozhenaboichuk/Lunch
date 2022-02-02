@@ -1,7 +1,9 @@
+# coding: utf-8
 class AdminUsersController < ApplicationController
+  before_action :authorize_admin
+  before_action :set_user!
 
   def destroy
-    @user= User.find(params[:id])
     unless  @user == current_user
       @user.destroy
       redirect_to admin_user_path(@user), status: :see_other, notice: 'Користувача видалено.'
@@ -12,7 +14,6 @@ class AdminUsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.role == "basic"
       @user.update role: "admin"
       redirect_to admin_user_path(@user), status: :see_other, notice:  'Роль змінено успішно.'
@@ -24,8 +25,16 @@ class AdminUsersController < ApplicationController
       redirect_to admin_user_path(@user), status: :see_other, notice:  'Роль змінено успішно.'
     end
 
-
+    
   end
 
+  private
 
+  def authorize_admin
+    authorize current_user || User, policy_class: AdminUserPolicy
+  end
+  
+  def set_user!
+    @user = User.find params[:id]
+  end
 end
