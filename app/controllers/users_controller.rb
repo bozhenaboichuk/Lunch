@@ -8,4 +8,11 @@ class UsersController < ApplicationController
     sign_out(current_user)
     redirect_to root_path, status: :see_other
   end
+
+  def index
+    @users = User.all
+  end
+
+
+
 end

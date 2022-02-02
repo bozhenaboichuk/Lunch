@@ -2,8 +2,11 @@ Rails.application.routes.draw do
 
 
   devise_for :users
-  devise_for :views
+
   resources :users
+  resources :admin_users
+
+  devise_for :views
 
   resources :restaurants do
     resources :dishes
@@ -14,5 +17,10 @@ Rails.application.routes.draw do
   resources :orders
 
   root "restaurants#index"
+
+  scope "admin" do
+    get "users", to: "users#index"
+    delete "users/:id", to: "users#destroy"
+  end
 
 end
