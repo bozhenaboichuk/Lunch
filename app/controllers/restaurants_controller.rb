@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_restaurant!, except: %i[index new create edit]
+  before_action :set_restaurant!, except: %i[index new create]
   before_action :authorize_restaurant
 
   def index
@@ -21,20 +21,17 @@ class RestaurantsController < ApplicationController
   end
 
   def edit
-    @restaurant = Restaurant.find_by id: params[:id]
   end
 
   def update
-    @restaurant = Restaurant.find_by id: params[:id]
-      if @restaurant.update restaurant_params
-        redirect_to restaurants_path
-      else
-        render :edit
-      end
+    if @restaurant.update restaurant_params
+      redirect_to restaurants_path, status: :see_other
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    @restaurant = Restaurant.find_by id: params[:id]
     @restaurant.destroy
     redirect_to restaurants_path
   end
