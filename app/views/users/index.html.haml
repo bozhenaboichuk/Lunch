@@ -1,0 +1,22 @@
+- @users.each do |user|
+  .inline-block.m-5
+    .block
+      - if user.avatar.attached?
+        = image_tag(user.avatar_thumbnail)
+      - else
+        = image_tag("default.jpg", size: "150x150")
+    .block
+      Користувач:
+      = user.first_name
+    .block
+      E-mail:
+      = user.email
+    .block
+      Роль:
+      = user.role
+    .block
+      - if policy(user).destroy?
+        = link_to 'Delete', admin_user_path(user), data: {'turbo-method': :delete}, class: 'btn ml-2'
+    .block
+      - if policy(user).change?
+        = link_to 'Change role', admin_user_path(user), data: {'turbo-method': :patch}, class: 'btn ml-2'
