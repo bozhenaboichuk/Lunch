@@ -9,15 +9,15 @@
 
 def populate_dish_types
   DishType.destroy_all
-  DishType.create [{ name: "first" },
-                   { name: "second" },
-                   { name: "salad" },
-                   { name: "desert" },
-                   {name:"pizza"},
-                   {name:"sushi"},
-                   {name:"drinks"},
-                   {name:"other_dishes"},
-                   {name:"sets"}]
+  DishType.create [{ name: "first" , heading: "Перші страви"},
+                   { name: "second", heading: "Основні страви"},
+                   { name: "salad" , heading: "Салати"},
+                   { name: "desert" , heading: "Десерти"},
+                   {name:"pizza", heading: "Піца"},
+                   {name:"sushi", heading: "Суші"},
+                   {name:"drinks", heading: "Напої"},
+                   {name:"other_dishes", heading: "Інші страви"},
+                   {name:"sets", heading: "Сети"}]
 end
 
 def populate_restaurants
