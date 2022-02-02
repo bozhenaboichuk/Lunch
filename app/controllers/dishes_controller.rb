@@ -1,31 +1,26 @@
 class DishesController < ApplicationController
   before_action :set_restaurant!
+  before_action :set_dish!, only: %i[edit update destroy]
 
   def create
       @dish = @restaurant.dishes.build dish_params
-      logger.debug "New dish: #{@dish.attributes.inspect}"
-      logger.debug "Dish should be valid: #{@dish.valid?}"
-      logger.debug @dish.errors.inspect
       if @dish.save
-        logger.debug "The dish was saved and now thr user is going to be redirected..."
         redirect_to restaurant_path(@restaurant), status: :see_other
       else
         @types = DishType.all
-        render 'restaurants/show'
+        render :new, status: :unprocessable_entity
       end
     end
 
     def edit
-      @dish = Dish.find_by id: params[:id]
     end
 
     def update
-      @dish = Dish.find_by id: params[:id]
-        if @dish.update dish_params
-          redirect_to restaurant_path(@restaurant)
-        else
-          render 'restaurants/show'
-        end
+      if @dish.update dish_params
+        redirect_to restaurant_path(@restaurant), status: :see_other
+      else
+        render :edit, status: :unprocessable_entity
+      end
     end
 
     def new
@@ -34,8 +29,7 @@ class DishesController < ApplicationController
 
 
     def destroy
-      dish = @restaurant.dishes.find params[:id]
-      dish.destroy
+      @dish.destroy
       redirect_to restaurant_path(@restaurant), status: :see_other
     end
 
@@ -45,8 +39,11 @@ class DishesController < ApplicationController
     @restaurant = Restaurant.find params[:restaurant_id]
   end
 
+  def set_dish!
+    @dish = Dish.find params[:id]
+  end
+  
   def dish_params
     params.require(:dish).permit(:price, :weight, :describe, :name, :avatar, :dish_type_id)
   end
-
 end
