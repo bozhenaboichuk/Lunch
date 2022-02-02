@@ -15,6 +15,10 @@ class UserPolicy < ApplicationPolicy
     user.admin_role?
   end
 
+  def change?
+    user.admin_role?
+  end
+
   def show?
     true
   end
