@@ -10,6 +10,5 @@
   - unless @dishes.empty?
     %h2.heading-2.my-8
       = type.name
-    .adaptive-grid
-      = render @dishes
- 
+  .grid.s5:grid-cols-6.s4:grid-cols-5.gap-4.s3:grid-cols-4.s2:grid-cols-3.s1:grid-cols-2.grid-cols-1.justify-center.items-center.flex
+    = render @dishes
