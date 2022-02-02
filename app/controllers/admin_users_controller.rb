@@ -1,7 +1,7 @@
 # coding: utf-8
 class AdminUsersController < ApplicationController
-  before_action :authorize_admin
   before_action :set_user!
+  before_action :authorize_admin
 
   def destroy
     unless  @user == current_user
