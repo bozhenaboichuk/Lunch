@@ -6,5 +6,8 @@
     "postcss": "^8.4.5",
     "heroku": "^7.59.2",
     "yarn": "^1.22.17"
+  },
+  "scripts": {
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.css -o ./app/assets/stylesheets/wind.css"
   }
 }
