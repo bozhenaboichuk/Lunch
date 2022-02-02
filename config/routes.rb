@@ -2,8 +2,11 @@ Rails.application.routes.draw do
 
 
   devise_for :users
-  devise_for :views
+
   resources :users
+  resources :admin_users
+
+  devise_for :views
 
   resources :restaurants do
     resources :dishes
