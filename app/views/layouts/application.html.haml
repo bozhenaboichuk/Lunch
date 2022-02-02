@@ -10,27 +10,25 @@
     = javascript_importmap_tags
 
     %body.text-gray-600
-      %header.p-4.border-b.sticky.bg-cyan-700.fixed.top-0.shadow-xl.z-10.absolute
+      %header.p-4.border-b.sticky.bg-cyan-700.fixed.top-0.shadow-xl
         %nav.flex.justify-between.text-white
           = link_to 'Lunch', root_path, class: 'text-white text-xl md:text-2xl mt-1 font-bold hover:text-cyan-200 uppercase'
           %div.hidden.sm:flex.items-center.space-x-1
             %ul.flex
-              - if current_user and session[:order_id]
+              - if user_signed_in? and session[:order_id]
                 %li.mx-5.hover:text-cyan-200
                   = link_to 'My order', order_path(session[:order_id])
               %li.mx-5.hover:text-cyan-200
                 = link_to 'History', orders_path
               %li.mx-5.hover:text-cyan-200
-                = link_to 'Profile', current_user
-              %li.mx-5.hover:text-cyan-200
-                = link_to 'Users', users_path
+                Profile
               - if user_signed_in?
                 %li.mx-5.hover:text-cyan-200
                   = link_to 'Sign Out', destroy_user_session_path, data: {turbo_method: :delete}
               - else
                 %li.mx-5.hover:text-cyan-200
                   = link_to 'Log In', new_user_session_path
-
+                
           %div.sm:hidden
             %button.flex.items-center.px-2.py-2.border.rounded.text-white.hover:text-white.hover:border-white.outline-none.mobile-menu-button
               %svg.h-6.w-6{:fill => "none", :stroke => "currentColor", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
@@ -42,7 +40,7 @@
           .block-inline.py-2.px-4.text-sm.hover:bg-cyan-900
             = link_to 'History', orders_path
           .block-inline.py-2.px-4.text-sm.hover:bg-cyan-900
-            = link_to 'Profile', current_user
+            Profile
           - if user_signed_in?
             .block-inline.py-2.px-4.text-sm.hover:bg-cyan-900
               = link_to 'Sign Out', destroy_user_session_path, data: {turbo_method: :delete}
@@ -51,13 +49,12 @@
               = link_to 'Log In', new_user_session_path
 
           :javascript
-            btn = document.querySelector("button.mobile-menu-button");
-            menu = document.querySelector(".mobile-menu");
+            const btn = document.querySelector("button.mobile-menu-button");
+            const menu = document.querySelector(".mobile-menu");
 
             btn.addEventListener("click", () => { menu.classList.toggle("hidden");});
-
-      %main.p-8.bg-sky-200.relative.min-h-500
-
+            
+      %main.p-8.bg-sky-200
 
         - if notice
           .flex.mb-5

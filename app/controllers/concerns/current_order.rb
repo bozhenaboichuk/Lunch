@@ -2,7 +2,7 @@ module CurrentOrder
 
   private
 
-  def set_current_order
+  def set_order
     session[:init] = 'true'
     @order = Order.find(session[:order_id])
   rescue ActiveRecord::RecordNotFound

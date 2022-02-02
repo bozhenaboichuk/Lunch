@@ -9,7 +9,6 @@ skinparam linetype ortho
 entity User {
 	* id : number <<generated>>
 	--
-	* role : integer
 	* email : string
 	first_name : string
 	last_name : string
