@@ -7,5 +7,6 @@
         %span.absolute.inset-0.w-full.h-full.border-4.border-cyan-900
         %span.relative.text-white
           = link_to "Додати ресторан", new_restaurant_path
-.grid.grid-cols-1.sm:grid-cols-2.md:grid-cols-3.lg:grid-cols-4.xl:grid-cols-5.gap-4.justify-items-center
-  = render @restaurants
+%main.h-120
+  .grid.grid-cols-1.sm:grid-cols-2.md:grid-cols-3.lg:grid-cols-4.xl:grid-cols-5.gap-4.justify-items-center
+    = render @restaurants
