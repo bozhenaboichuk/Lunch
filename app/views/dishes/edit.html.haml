@@ -1,0 +1,29 @@
+%h1.heading-1
+  Редагувати страву
+
+= form_with model: [@restaurant, @dish] do |f|
+  = f.label :name
+  %br/
+  = f.text_area :name, class: "form-control"
+  %br/
+  = f.label :describe
+  %br/
+  = f.text_area :describe, class: "form-control"
+  %br/
+  = f.label :price
+  %br/
+  = f.text_area :price, class: "form-control"
+  %br/
+  = f.label :weight
+  %br/
+  = f.text_area :weight, class: "form-control"
+  %br/
+  = f.label :avatar
+  %br/
+  = f.file_field :avatar, class: "form-control"
+  %br/
+  = f.label :dish_type
+  %br/
+  = f.collection_select :dish_type_id, DishType.all, :id, :name
+  %br/
+  = f.submit "save"

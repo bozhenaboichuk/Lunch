@@ -15,6 +15,24 @@ class DishesController < ApplicationController
       end
     end
 
+    def edit
+      @dish = Dish.find_by id: params[:id]
+    end
+
+    def update
+      @dish = Dish.find_by id: params[:id]
+        if @dish.update dish_params
+          redirect_to restaurant_path(@restaurant)
+        else
+          render 'restaurants/show'
+        end
+    end
+
+    def new
+      @dish = @restaurant.dishes.build
+    end
+
+
     def destroy
       dish = @restaurant.dishes.find params[:id]
       dish.destroy
