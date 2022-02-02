@@ -1,10 +1,11 @@
-%h1.heading-1
-  Restaurants
-
-.adaptive-grid
+%div.text-center
+  %h1.heading-1
+    Ресторани
+    - if policy(Restaurant).create?
+      %button.absolute.px-6.py-3.font-bold.text-black.group.text-base.z-0.right-8.invisible.md:visible
+        %span.absolute.inset-0.w-full.h-full.transition.duration-300.ease-out.transform.-translate-x-2.-translate-y-2.bg-cyan-700.group-hover:translate-x-0.group-hover:translate-y-0
+        %span.absolute.inset-0.w-full.h-full.border-4.border-cyan-900
+        %span.relative.text-white
+          = link_to "Додати ресторан", new_restaurant_path
+.grid.grid-cols-1.sm:grid-cols-2.md:grid-cols-3.lg:grid-cols-4.xl:grid-cols-5.gap-4.justify-items-center
   = render @restaurants
-
-%section.mt-6
-  .flex
-    - if user_signed_in?
-      = link_to "Додати заклад", new_restaurant_path, class: 'btn'

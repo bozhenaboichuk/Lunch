@@ -38,5 +38,5 @@
 
 /node_modules
 
-# /app/assets/stylesheets/wind.css
+/app/assets/stylesheets/wind.css
 /package-lock.json
