@@ -11,16 +11,15 @@
 
 
     %body.h-screen
-      %header
-        %nav.bg-cyan-700.space-y-4
-          %h1.p-5.text-2xl.text-blue-300.hover:text-white
-            = link_to "Lunch", root_path
+      %header.p-4.border-b.sticky.bg-white.fixed.top-0.shadow-xl.z-10.absolute.font-nav.text-2xl
+        %nav.flex.justify-between.text-black
+          = link_to (image_tag 'LUNCH.png', width:"150px"), root_path
           -# = link_to image_tag( 'Lunch.png'), root_path
           -# .ui.medium.image
           -# %image{:alt => "", :src => "asset_path('Lunch.png')}"}
           -# %img(src="Lunch.png")
           -# = image_tag('images/Lunch', class:"img-responsive img-circle")
-
+      %main.p-8.bg-gray-100.min-h-full
         - if notice
           .flex
             .notice.ml-6
@@ -32,7 +31,6 @@
 
         = yield
 
-      %footer.bg-cyan-700.py-8
-        .container.mx-auto.text-center.text-white
-          &copy;
-          = "Copyrignt #{Time.now.year} Lunch"
+      %footer.py-8.font-nav.text-3xl.text-black.font-medium.border-t.text-center.bg-white
+        &copy;
+        = "Copyrignt #{Time.now.year} LUNCH"

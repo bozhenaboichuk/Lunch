@@ -10,44 +10,44 @@
     = javascript_importmap_tags
 
     %body.text-gray-600
-      %header.p-4.border-b.sticky.bg-cyan-700.fixed.top-0.shadow-xl.z-10.absolute
-        %nav.flex.justify-between.text-white
-          = link_to 'Lunch', root_path, class: 'text-white text-xl md:text-2xl mt-1 font-bold hover:text-cyan-200 uppercase'
+      %header.p-4.border-b.sticky.bg-white.fixed.top-0.shadow-xl.z-10.absolute.font-nav.text-2xl
+        %nav.flex.justify-between.text-black
+          = link_to (image_tag 'LUNCH.png', width:"150px"), root_path
           %div.hidden.sm:flex.items-center.space-x-1
             %ul.flex
               - if current_user and session[:order_id]
-                %li.mx-5.hover:text-cyan-200
+                %li.mx-5.hover:text-gray-400
                   = link_to 'My order', order_path(session[:order_id])
-              %li.mx-5.hover:text-cyan-200
+              %li.mx-5.hover:text-gray-400
                 = link_to 'History', orders_path
-              %li.mx-5.hover:text-cyan-200
+              %li.mx-5.hover:text-gray-400
                 = link_to 'Profile', current_user
-              %li.mx-5.hover:text-cyan-200
+              %li.mx-5.hover:text-gray-400
                 = link_to 'Users', users_path
               - if user_signed_in?
-                %li.mx-5.hover:text-cyan-200
+                %li.mx-5.hover:text-gray-400
                   = link_to 'Sign Out', destroy_user_session_path, data: {turbo_method: :delete}
               - else
-                %li.mx-5.hover:text-cyan-200
+                %li.mx-5.hover:text-gray-400
                   = link_to 'Log In', new_user_session_path
 
           %div.sm:hidden
-            %button.flex.items-center.px-2.py-2.border.rounded.text-white.hover:text-white.hover:border-white.outline-none.mobile-menu-button
-              %svg.h-6.w-6{:fill => "none", :stroke => "currentColor", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+            %button.flex.items-center.px-2.py-2.border.rounded.text-black.hover:text-white.hover:border-white.outline-none.mobile-menu-button
+              %svg.h-6.w-6{:fill => "none", :stroke => "black", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
                 %path{:d => "M4 6h16M4 12h16M4 18h16", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2"}
-        %div.mobile-menu.hidden.sm:hidden.text.text-white
+        %div.mobile-menu.hidden.sm:hidden.text-black
           - if user_signed_in? and session[:order_id]
-            .block-inline.py-2.px-4.text-sm.hover:bg-cyan-900
+            .block-inline.py-2.px-4.text-xl.hover:bg-gray-200
               = link_to 'My order', order_path(session[:order_id])
-          .block-inline.py-2.px-4.text-sm.hover:bg-cyan-900
+          .block-inline.py-2.px-4.text-xl.hover:bg-gray-200
             = link_to 'History', orders_path
-          .block-inline.py-2.px-4.text-sm.hover:bg-cyan-900
+          .block-inline.py-2.px-4.text-xl.hover:bg-gray-200
             = link_to 'Profile', current_user
           - if user_signed_in?
-            .block-inline.py-2.px-4.text-sm.hover:bg-cyan-900
+            .block-inline.py-2.px-4.text-xl.hover:bg-gray-200
               = link_to 'Sign Out', destroy_user_session_path, data: {turbo_method: :delete}
           - else
-            .block-inline.py-2.px-4.text-sm.hover:bg-cyan-900
+            .block-inline.py-2.px-4.text-sm.hover:bg-gray-200
               = link_to 'Log In', new_user_session_path
 
           :javascript
@@ -56,8 +56,7 @@
 
             btn.addEventListener("click", () => { menu.classList.toggle("hidden");});
 
-      %main.p-8.bg-sky-200.relative.min-h-500
-
+      %main.p-8.bg-gray-100.min-h-full
 
         - if notice
           .flex.mb-5
@@ -71,6 +70,6 @@
         %section
           = yield
 
-      %footer.py-8.text-xl.text-white.font-medium.border-t.text-center.bg-cyan-700
+      %footer.py-8.font-nav.text-3xl.text-black.font-medium.border-t.text-center.bg-white
         &copy;
         = "Copyrignt #{Time.now.year} LUNCH"

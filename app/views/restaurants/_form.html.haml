@@ -1,18 +1,23 @@
-= form_with model: @restaurant do |f|
-  = f.label :name
-  %br/
-  = f.text_area :name, class: "form-control"
-  %br/
-  = f.label :phone_number
-  %br/
-  = f.text_area :phone_number, class: "form-control"
-  %br/
-  = f.label :address
-  %br/
-  = f.text_area :address, class: "form-control"
-  %br/
-  = f.label :avatar
-  %br/
-  = f.file_field :avatar, class: "form-control"
-  %br/
-  = f.submit "save"
+%form.text-center.font-nav
+  = form_with model: @restaurant do |f|
+    .lable-add
+      = f.label :name
+      %br/
+    = f.text_area :name, class: "form-control"
+    %br/
+    .lable-add
+      = f.label :phone_number
+      %br/
+    = f.text_area :phone_number, class: "form-control"
+    %br/
+    .lable-add
+      = f.label :address
+      %br/
+    = f.text_area :address, class: "form-control"
+    %br/
+    .lable-add
+      = f.label :avatar
+      %br/
+    = f.file_field :avatar, class: "form-control"
+    %br/
+    = f.submit "Зберегти", class:"form-btn mt-2"
