@@ -69,4 +69,4 @@ test:
 
 production:
   <<: *default-psql
-  database: <%= ENV['DB_PROD_NAME']
+  database: <%= ENV['DB_PROD_NAME'] %>
