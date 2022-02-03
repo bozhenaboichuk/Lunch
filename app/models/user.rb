@@ -8,14 +8,6 @@ class User < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_one_attached :avatar
 
-  def avatar_thumbnail
-    if avatar.attached?
-      avatar.variant(resize_to_fill: [150, nil]).processed
-    else
-      "/default.jpg"
-    end
-  end
-
   def guest?
     false
   end
