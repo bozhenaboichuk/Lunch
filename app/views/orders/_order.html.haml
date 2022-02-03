@@ -1,24 +1,24 @@
-.card.hover:bg-gray-100
-  %section.mb-3
+.card.hover:bg-gray-100.font-nav.text-black.text-xl
+  %section.mb-3.text-center
     %p.mb-2
       = order.user.email
     %p.mb-2
       = order.created_at.strftime("%Y-%m-%d")
-      
+
     %section.px-2.mb-2
       %ol
       - order.dishes.each do |dish|
         %li
           = dish.name
-          
+
     %p
       - if order.completed == true
         = 'completed'
       - else
         = 'pending'
-        
-  %section.flex
+
+  %section.flex.justify-between
     - if policy(order).update?
-      = link_to 'Toggle status', order_path(order), data: {'turbo-method': :patch}, class: 'btn'
+      = link_to 'Toggle status', order_path(order), data: {'turbo-method': :patch}, class: 'form-btn'
     - if policy(order).destroy?
-      = link_to 'Delete', order_path(order), data: {'turbo-method': :delete}, class: 'btn ml-2'
+      = link_to 'Delete', order_path(order), data: {'turbo-method': :delete}, class: 'form-btn'

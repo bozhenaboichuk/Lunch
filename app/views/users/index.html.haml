@@ -1,23 +1,22 @@
-%main.h-140
+.min-h-users
   - @users.each do |user|
-    .inline-block.m-5
-      .block
+    .inline-block.m-5.text-black.font-nav.text-2xl
+      .block.flex.justify-center
         - if user.avatar.attached?
           = image_tag(user.avatar_thumbnail)
         - else
           = image_tag("default.jpg", size: "150x150")
-      .block
+      .block.text-center
         Користувач:
         = user.first_name
-      .block
+      .block.text-center
         E-mail:
         = user.email
-      .block
+      .block.text-center
         Роль:
         = user.role
-      .block
+      %section.flex.justify-center
+        - if policy(user).update?
+          = link_to 'Delete', admin_user_path(user), data: {'turbo-method': :delete}, class: 'form-btn'
         - if policy(user).destroy?
-          = link_to 'Delete', admin_user_path(user), data: {'turbo-method': :delete}, class: 'btn ml-2'
-      .block
-        - if policy(user).change?
-          = link_to 'Change role', admin_user_path(user), data: {'turbo-method': :patch}, class: 'btn ml-2'
+          = link_to 'Change role', admin_user_path(user), data: {'turbo-method': :patch}, class: 'form-btn ml-3'

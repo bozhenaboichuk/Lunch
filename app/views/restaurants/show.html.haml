@@ -1,6 +1,11 @@
-%h1.heading-1
-  Меню
-= link_to 'Додати страву', new_restaurant_dish_path(@restaurant), class: 'btn'
+.flex.justify-center
+  %h1.heading-1
+    Меню
+    .justify-items-end
+      %button
+        = link_to new_restaurant_dish_path(@restaurant) do
+          %svg.h-12.w-12.-mt-5{:fill => "none", :stroke => "black", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+            %path{:d => "M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2"}
 - unless user_signed_in?
   .flex
     = link_to 'Log in to order food', new_user_session_path, class: 'btn'
@@ -8,7 +13,7 @@
 - @types.all.each do |type|
   - @dishes = @restaurant.dishes.where dish_type: type
   - unless @dishes.empty?
-    %h2.heading-2.my-8
+    %h2.heading-2.my-4
       = type.heading || type.name
-  .grid.s5:grid-cols-6.s4:grid-cols-5.gap-4.s3:grid-cols-4.s2:grid-cols-3.s1:grid-cols-2.grid-cols-1.justify-center.items-center.flex
+  .adaptive-menu
     = render @dishes
