@@ -54,6 +54,7 @@ gem "haml-rails"
 gem "mysql2"
 gem "pg"
 gem "pundit", "~> 2.1.1"
+gem "imagekitio"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
