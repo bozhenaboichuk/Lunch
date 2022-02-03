@@ -5,7 +5,7 @@
         - if user.avatar.attached?
           = image_tag(user.avatar, size: '150x150')
         - else
-          = image_tag("default.jpg", size: "150x150")
+          = image_tag("default.jpg", size: '150x150')
       .block.text-center
         Користувач:
         = user.first_name
