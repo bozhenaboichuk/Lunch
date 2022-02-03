@@ -7,6 +7,9 @@ class Dish < ApplicationRecord
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
+  validates :name, length: {minimum: 4}
+  validates :describe, length: {minimum: 8}, allow_blank: true
+
   private
 
   # ensure that there are no line items referencing this product
