@@ -2,8 +2,8 @@
   - @users.each do |user|
     .inline-block.m-5.text-black.font-nav.text-2xl
       .block.flex.justify-center
-        - if user.avatar.attached?
-          = image_tag(user.avatar, size: '150x150')
+        - if user.avatar.url
+          = image_tag(user.avatar.url, size: '150x150')
         - else
           = image_tag("default.jpg", size: '150x150')
       .block.text-center
