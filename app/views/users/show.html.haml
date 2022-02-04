@@ -1,9 +1,9 @@
 %div.min-h-users.text-black.font-nav.text-2xl
   .flex.justify-center
-    - if current_user.avatar.url
+    - if current_user.avatar.url.present?
       = image_tag(current_user.avatar.url, size: '150x150')
     - else
-      = image_tag("default.jpg", size: '150x150')
+      = image_tag('default.jpg', size: '150x150')
   .block.flex.justify-center
     Ім'я:
     = @user.first_name
