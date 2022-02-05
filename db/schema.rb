@@ -51,12 +51,12 @@ ActiveRecord::Schema.define(version: 2022_02_12_140257) do
     t.decimal "price"
     t.float "weight"
     t.string "name"
-    t.string "picture"
     t.integer "restaurant_id", null: false
     t.integer "dish_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "describe"
+    t.string "picture"
     t.index ["dish_type_id"], name: "index_dishes_on_dish_type_id"
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
   end
