@@ -9,11 +9,12 @@
         .flex.justify-center
           - if policy(@order).destroy?
             = link_to 'Remove', line_item_path(item), data: {'turbo-method': :delete}, class: 'btn-sm mr-2'
-          - if @order.dishes.present?
-            = link_to 'Back to dishes', restaurant_path(@order.dishes.last.restaurant), class: 'btn'
           - else
             = link_to 'Home', root_path, class: 'btn'
-    %section
+    %section.border-t-4
+      .flex.justify-center.my-3
+        - if @order.dishes.present?
+          = link_to 'Back to dishes', restaurant_path(@order.dishes.last.restaurant), class: 'btn'
       .flex.justify-center
         - if policy(@order).create?
           = button_to 'Complete', orders_path, class: 'ml-2 btn'
