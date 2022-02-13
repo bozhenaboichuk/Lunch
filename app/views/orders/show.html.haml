@@ -8,7 +8,7 @@
           = item.dish.name
         .flex.justify-center
           - if policy(@order).destroy?
-            = link_to 'Remove', user_order_line_item_path(current_user, @order, item), data: {'turbo-method': :delete}, class: 'btn-sm mr-2'
+            = link_to 'Remove', user_order_line_item_path(current_user, @order, item), data: {'turbo-method': :delete}, class: 'btn-sm'
           - else
             = link_to 'Home', root_path, class: 'btn'
     %section.border-t-4
