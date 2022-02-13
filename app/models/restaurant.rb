@@ -1,6 +1,9 @@
 class Restaurant < ApplicationRecord
   has_many :dishes, dependent: :destroy
-  has_one_attached :avatar
+  # has_one_attached :avatar
+  
+  attr_accessor :picture
+  mount_uploader :picture, RestaurantUploader
 
   validates :name, length: {minimum: 2}
   validates :address, length: {minimum: 3}, allow_blank: true

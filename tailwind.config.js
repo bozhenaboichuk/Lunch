@@ -8,6 +8,7 @@ module.exports = {
       screens:{
         's1': '450px',
         's2': '640px',
+        's2-3': '810px',
         's3': '768px',
         's4': '1024px',
         's5': '1280px',
@@ -15,6 +16,7 @@ module.exports = {
        minHeight: {
          'full': '774px',
          'users': '710px',
+         'card': '200px'
      },
 },
   variants: {
