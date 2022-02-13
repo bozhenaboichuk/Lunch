@@ -7,13 +7,15 @@ class OrdersController < ApplicationController
   before_action :authorize_order
 
   def index
-    @orders = Order.order(created_at: :desc)
+    @orders = Order.where('submitted = true').order(created_at: :desc)
   end
   
   def show
   end
 
   def create
+    @order = Order.find session[:order_id]
+    @order.update submitted: true
     session.delete(:order_id)
     redirect_to user_orders_path(current_user), status: :see_other
   end
