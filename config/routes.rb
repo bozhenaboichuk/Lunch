@@ -1,26 +1,23 @@
 Rails.application.routes.draw do
-
-
   devise_for :users
-
-  resources :users
-  resources :admin_users
-
   devise_for :views
 
-  resources :restaurants do
-    resources :dishes
+  resources :users do
+    resources :orders do
+      resources :line_items
+    end
   end
-
-  resources :line_items
-
-  resources :orders
-
-  root "restaurants#index"
-
+  
+  resources :admin_users
+  
   scope "admin" do
     get "users", to: "users#index"
     delete "users/:id", to: "users#destroy"
   end
 
+  resources :restaurants do
+    resources :dishes
+  end
+
+  root "restaurants#index"
 end

@@ -1,9 +1,9 @@
 %article.card
   %section.h-64.bg-white.flex.justify-center.items-center
-    -if restaurant.avatar.attached?
-      = link_to (image_tag restaurant.avatar, width:'250'), restaurant_path(restaurant)
+    -if restaurant.picture.url.present?
+      = link_to (image_tag restaurant.picture.url, width:'250'), restaurant_path(restaurant)
     - else
-      = link_to (image_tag 'default.png' || '', width:'250'), restaurant_path(restaurant)
+      = link_to (image_tag 'default.png', width:'250'), restaurant_path(restaurant)
   %section.text-center.font-nav
     .block.text-black.font-bold.text-2xl
       = link_to (restaurant.name), restaurant_path(restaurant)

@@ -17,8 +17,8 @@
       - else
         = 'pending'
 
-    %section.flex
-      - if policy(order).update?
-        = link_to 'Toggle', order_path(order), data: {'turbo-method': :patch}, class: 'form-btn mr-5'
-      - if policy(order).destroy?
-        = link_to 'Delete', order_path(order), data: {'turbo-method': :delete}, class: 'form-btn'
+  %section.flex
+    - if policy(order).update?
+      = link_to 'Toggle', user_order_path(order.user, order), data: {'turbo-method': :patch}, class: 'form-btn mr-5'
+    - if policy(order).destroy?
+      = link_to 'Delete', user_order_path(order.user, order), data: {'turbo-method': :delete}, class: 'form-btn'

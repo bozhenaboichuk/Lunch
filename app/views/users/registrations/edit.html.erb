@@ -25,7 +25,7 @@
 
         <div class="field block mb-2 text-gray-600">
           <%= f.label :avatar %><br />
-          <%= image_tag(resource.avatar_thumbnail) if resource.avatar.attached? %>
+          <%= image_tag(resource.avatar.url) if resource.avatar.url.present? %>
         </div>
 
         <div class="field block mb-2 text-gray-600">
