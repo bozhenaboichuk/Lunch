@@ -19,4 +19,16 @@ class User < ApplicationRecord
   def guest?
     false
   end
+
+  def name_or_email
+    fname = self.first_name.strip
+    lname = self.last_name.strip
+    email = self.email.strip
+    
+    if fname.empty? || lname.empty?
+      email[0, email.index('@')]
+    else
+      (fname + ' ' + lname).strip
+    end
+  end
 end
