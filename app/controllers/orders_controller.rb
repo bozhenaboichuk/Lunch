@@ -1,7 +1,6 @@
 class OrdersController < ApplicationController
   include CurrentOrder
   
-  before_action :authenticate_user!
   before_action :set_order!, only: %i[show destroy update]
   before_action :set_current_order, only: :create
   before_action :authorize_order

@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
     resource.update_without_password(params)
   end
 
+  before_action :authenticate_user!
   before_action :configure_permitted_paramters, if: :devise_controller?
 
   protected
