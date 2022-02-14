@@ -1,7 +1,6 @@
 class LineItemsController < ApplicationController
   include CurrentOrder
 
-  before_action :authenticate_user!
   before_action :set_current_order, only: [:create]
   before_action :set_line_item!, only: :destroy
   before_action :authorize_line_item
