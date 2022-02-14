@@ -21,12 +21,12 @@
           -# = image_tag('images/Lunch', class:"img-responsive img-circle")
       %main.p-8.bg-gray-100.min-h-full
         - if notice
-          .flex
-            .notice.ml-6
+          .flex.align-center
+            .notice
               = notice
         - if alert
-          .flex
-            .alert.ml-6
+          .flex.align-center
+            .alert
               = alert
 
         = yield

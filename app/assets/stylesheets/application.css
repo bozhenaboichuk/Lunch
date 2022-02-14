@@ -63,3 +63,7 @@
 .lable-add{
   @apply text-2xl text-black;
 }
+
+.align-center{
+  @apply justify-center mb-5;
+}
