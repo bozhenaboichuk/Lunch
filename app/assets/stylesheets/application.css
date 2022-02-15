@@ -65,5 +65,5 @@
 }
 
 .align-center{
-  @apply justify-center mb-5;
+  @apply justify-center;
 }
