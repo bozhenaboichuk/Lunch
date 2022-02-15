@@ -38,6 +38,5 @@
 
 /node_modules
 
-/app/assets/stylesheets/wind.css
 /package-lock.json
 /public/uploads
