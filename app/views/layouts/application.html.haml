@@ -1,5 +1,5 @@
 !!!
-%html
+%html.h-full
   %head
     %title Lunch
     %meta{name: "viewport", content: "width=device-width,initial-scale=1"}
@@ -10,7 +10,7 @@
     = javascript_importmap_tags
 
     %body.text-gray-600
-      %header.p-4.border-b.sticky.bg-white.fixed.top-0.shadow-xl.z-10.absolute.font-nav.text-2xl
+      %header.p-4.border-b.sticky.bg-white.fixed.top-0.shadow-xl.z-10.absolute.font-nav.text-2xl.h-20
         %nav.flex.justify-between.text-black
           = link_to (image_tag 'LUNCH.png', width:"150px"), root_path
           %div.hidden.sm:flex.items-center.space-x-1
@@ -60,7 +60,7 @@
 
             btn.addEventListener("click", () => { menu.classList.toggle("hidden");});
 
-      %main.p-8.bg-gray-100.min-h-full
+      %main.p-8.bg-gray-100.mb-16
 
         - if notice
           .flex.align-center.mb-5
@@ -74,6 +74,6 @@
         %section
           = yield
 
-      %footer.py-8.font-nav.text-3xl.text-black.font-medium.border-t.text-center.bg-white
+      %footer.styles-footer
         &copy;
         = "Copyrignt #{Time.now.year} LUNCH"

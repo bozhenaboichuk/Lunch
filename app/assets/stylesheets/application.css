@@ -67,3 +67,7 @@
 .align-center{
   @apply justify-center;
 }
+
+.styles-footer{
+  @apply py-4 h-16 bottom-0 font-nav text-xl text-black font-medium border-t text-center bg-white fixed w-full;
+}
