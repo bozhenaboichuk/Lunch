@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RestaurantsController < ApplicationController
   before_action :set_restaurant!, except: %i[index new create]
   before_action :authorize_restaurant
@@ -12,15 +14,14 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new restaurant_params
-      if @restaurant.save
-        redirect_to restaurants_path, status: :see_other
-      else
-        render :new, status: :unprocessable_entity
-      end
+    if @restaurant.save
+      redirect_to restaurants_path, status: :see_other
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @restaurant.update restaurant_params

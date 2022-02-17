@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateDishOrderLists < ActiveRecord::Migration[7.0]
   def change
     create_table :dish_order_lists do |t|

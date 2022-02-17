@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class LineItemsController < ApplicationController
   include CurrentOrder
 
   before_action :set_current_order, only: [:create]
   before_action :set_line_item!, only: :destroy
   before_action :authorize_line_item
-  
+
   def create
     dish = Dish.find(params[:dish_id])
     @line_item = @order.line_items.build(dish: dish)
