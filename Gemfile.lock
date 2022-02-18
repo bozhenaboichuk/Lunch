@@ -311,6 +311,7 @@ DEPENDENCIES
   devise (~> 4.8.1)
   dotenv-rails
   haml-rails
+  i18n
   image_processing (~> 1.2)
   imagekitio
   importmap-rails
