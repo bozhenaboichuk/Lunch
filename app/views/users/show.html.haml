@@ -17,5 +17,8 @@
     Телефон:
     = @user.phone_number
   .block.flex.justify-center
+    Мова:
+    = @user.locale
+  .block.flex.justify-center
     %button.form-btn.flex.justify-center
       = link_to "Редагувати дані".html_safe, edit_user_registration_path
