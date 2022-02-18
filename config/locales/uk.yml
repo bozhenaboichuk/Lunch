@@ -1,0 +1,41 @@
+uk:
+  helpers:
+    edit:
+      edit_profile: "Редагувати профіль"
+    users:
+      cancel_account: "Видалити мій акаунт"
+      back: "Назад"
+      choose_file: "Вибрати файл"
+      update: "Змінити"
+  activerecord:
+    attributes:
+      user:
+        email: "Ел.пошта"
+        first_name: "Ім'я"
+        last_name: "Прізвище"
+        avatar: "Фото профілю"
+        phone_number: "Телефон"
+        password: "Новий Пароль"
+        locale: "Мова"
+        password_confirmation: "Підтвердження паролю"
+        current_password: "Поточний пароль"
+  application:
+    menu_my_order: "Мої замовлення"
+    menu_history: "Історія"
+    menu_profile: "Профіль"
+    menu_users: "Користувачі"
+    menu_sign_out: "Вийти"
+    menu_log_in: "Увійти"
+  users:
+    show:
+      profile_first_name: "Ім'я:"
+      profile_last_name: "Прізвище:"
+      profile_email: "Ел.пошта:"
+      profile_phone_number: "Телефон:"
+      profile_locale: "Мова:"
+    registrations:
+      edit:
+        heading: "Редагувати користувача"
+        leave blank: "(Не заповнюйте поле якщо не хочете міняти пароль)"
+        characters minimum: "символів мінімум"
+        need_current_password: "(Потрібно ввести поточний пароль для збереження змін)"
