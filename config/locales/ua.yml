@@ -1,0 +1,25 @@
+ua:
+  activerecord:
+    attributes:
+      restaurant:
+        name: "Назва"
+        phone_number: "Номер телефону"
+        address: "Адреса"
+        picture: "Зображення"
+      dish:
+        name: "Назва"
+        describe: "Опис"
+        price: "Ціна"
+        weight: "Вага"
+        picture: "Зображення"
+        dish_type: "Класифікація страви"
+  restaurants:
+    index:
+      heading: "Ресторани"
+  devise:
+    sessions:
+      new:
+      signed_in: "Ви увійшли в систему."
+  line_items:
+    create:
+      notice: "Страву успішно додано!"
