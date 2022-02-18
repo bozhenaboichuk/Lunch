@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RestaurantUploader < CarrierWave::Uploader::Base
   include ImageKitIo::CarrierWave
   # Include RMagick or MiniMagick support:
@@ -9,18 +11,18 @@ class RestaurantUploader < CarrierWave::Uploader::Base
   # storage :fog
 
   def options
-    options={
+    options = {
       response_fields: 'isPrivateFile, tags',
       tags: %w[abc def],
       use_unique_file_name: false,
-      folder: "uploads/restaurant/"
+      folder: 'uploads/restaurant/'
     }
   end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/restaurant/"
+    'uploads/restaurant/'
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

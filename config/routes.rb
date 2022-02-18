@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users
   devise_for :views
@@ -7,17 +9,17 @@ Rails.application.routes.draw do
       resources :line_items
     end
   end
-  
+
   resources :admin_users
-  
-  scope "admin" do
-    get "users", to: "users#index"
-    delete "users/:id", to: "users#destroy"
+
+  scope 'admin' do
+    get 'users', to: 'users#index'
+    delete 'users/:id', to: 'users#destroy'
   end
 
   resources :restaurants do
     resources :dishes
   end
 
-  root "restaurants#index"
+  root 'restaurants#index'
 end

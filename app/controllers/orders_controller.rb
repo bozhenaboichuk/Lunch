@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class OrdersController < ApplicationController
   include CurrentOrder
-  
+
   before_action :set_order!, only: %i[show destroy update]
   before_action :set_current_order, only: :create
   before_action :authorize_order
@@ -8,9 +10,8 @@ class OrdersController < ApplicationController
   def index
     @orders = Order.where('submitted = true').order(created_at: :desc)
   end
-  
-  def show
-  end
+
+  def show; end
 
   def create
     @order = Order.find session[:order_id]
@@ -28,7 +29,7 @@ class OrdersController < ApplicationController
 
     redirect_to user_orders_path(current_user), status: :see_other
   end
-    
+
   def destroy
     @order.destroy
     session.delete(:order_id)
