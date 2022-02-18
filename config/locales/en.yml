@@ -12,7 +12,7 @@ en:
         price: "Price"
         weight: "Weight"
         picture: "Picture"
-        weight: "Weight"
+        dish_type: "Dish_type"
   restaurants:
     index:
       heading: "Restaurants"
