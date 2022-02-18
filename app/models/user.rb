@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   enum role: { basic: 0, admin: 1 }, _suffix: :role
-  validates :locale, inclusion: { in: %w(en uk) }
+  validates :locale, inclusion: { in: %w(en ua) }
 
 
   # Include default devise modules. Others available are:

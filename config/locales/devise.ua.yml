@@ -1,7 +1,7 @@
 #Український переклад для https://github.com/plataformatec/devise/tree/v4.2.0
 #Інші переклади на http://github.com/plataformatec/devise/wiki/I18n
 
-uk:
+ua:
   devise:
     confirmations:
       confirmed: "Ваш обліковий запис було успішно підтверджено."
