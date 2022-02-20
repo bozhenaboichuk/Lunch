@@ -10,9 +10,9 @@
     .block#id.hidden
       = dish.describe
     .block.mb-2.text-lg
-      Ціна:
+      = t('.price')
       = dish.price
-      грн
+      = t('dishes._dish.currency')
     .block#id.hidden
       Вага/об'єм:
       = dish.weight

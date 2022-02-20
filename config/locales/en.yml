@@ -1,4 +1,22 @@
 en:
+  helpers:
+    submit:
+      restaurant:
+        create: "Save"
+      dish:
+        create: "Save"
+      order:
+        _order:
+          update: "Toggle"
+          delete: "Delete"
+        show:
+          remove: "Remove"
+          back: "Back to dishes"
+          complete: "Complete"
+          cancel: "Cancel"
+      user:
+        delete: "Delete"
+        change: "Change role"
   activerecord:
     attributes:
       restaurant:
@@ -14,12 +32,44 @@ en:
         picture: "Picture"
         dish_type: "Dish_type"
   restaurants:
+    new:
+      heading: "Add a restaurant"
     index:
       heading: "Restaurants"
-  devise:
-    sessions:
-      new:
-      signed_in: "You are logged in."
+    show:
+      heading: "Menu"
+  dishes:
+    edit:
+      heading: "Edit the dish"
+    new:
+      heading: "Add a dish"
+    _dish:
+      price: "Price"
+      currency: "uah"
+  orders:
+    index:
+      heading: "Order history"
+    _order:
+      completed: "completed"
+      pending: "pending"
+    show:
+      heading: "Order"
+  users:
+    index:
+      user_first_name: "User:"
+      e_mail: "E-mail:"
+      user_role: "Role:"
+  db:
+    seeds:
+      first_dish: "First"
+      second_dish: "Second"
+      salad_dish: "Salad"
+      drinks_dish: "Drinks"
+      desert_dish: "Desert"
+      pizza_dish: "Pizza"
+      sushi_dish: "Sushi"
+      other_dishes: "Other dishes"
+      sets_dish: "Sets"
   line_items:
     create:
-      notice: "Dish was successfully added!"
+      notice: "The dish was successfully added!"
