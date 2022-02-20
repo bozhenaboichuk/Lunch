@@ -1,4 +1,22 @@
 ua:
+  helpers:
+    submit:
+      restaurant:
+        create: "Зберегти"
+      dish:
+        create: "Зберегти"
+      order:
+        _order:
+          update: "Змінити статус"
+          delete: "Видалити"
+        show:
+          remove: "Видалити"
+          back: "Повернутись до страв"
+          complete: "Завершити"
+          cancel: "Відмінити"
+      user:
+        delete: "Видалити"
+        change: "Змінити роль"
   activerecord:
     attributes:
       restaurant:
@@ -14,12 +32,44 @@ ua:
         picture: "Зображення"
         dish_type: "Класифікація страви"
   restaurants:
+    new:
+      heading: "Додати ресторан"
     index:
       heading: "Ресторани"
-  devise:
-    sessions:
-      new:
-      signed_in: "Ви увійшли в систему."
+    show:
+      heading: "Меню"
+  dishes:
+    edit:
+      heading: "Редагувати страву"
+    new:
+      heading: "Додати страву"
+    _dish:
+      price: "Ціна"
+      currency: "грн"
+  orders:
+    index:
+      heading: "Історія замолень"
+    _order:
+      completed: "завершено"
+      pending: "на розгляді"
+    show:
+      heading: "Замовлення"
+  users:
+    index:
+      user_first_name: "Користувач:"
+      e_mail: "Ел.пошта:"
+      user_role: "Роль:"
+  db:
+    seeds:
+      first_dish: "Перші страви"
+      second_dish: "Другі страви"
+      salad_dish: "Салати"
+      drinks_dish: "Напої"
+      desert_dish: "Десерти"
+      pizza_dish: "Піца"
+      sushi_dish: "Суші"
+      other_dishes: "Інші страви"
+      sets_dish: "Сети"
   line_items:
     create:
       notice: "Страву успішно додано!"
