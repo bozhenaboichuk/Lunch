@@ -12,12 +12,12 @@
           = dish.name
     %p.mb-3
       - if order.completed == true
-        = 'completed'
+        = t('orders._order.compeleted')
       - else
-        = 'pending'
+        = t('orders._order.pending')
 
   %section.flex.justify-center
     - if policy(order).update?
-      = link_to 'Toggle', user_order_path(order.user, order), data: {'turbo-method': :patch}, class: 'form-btn mr-5'
+      = link_to t('helpers.submit.order._order.update'), user_order_path(order.user, order), data: {'turbo-method': :patch}, class: 'form-btn mr-5'
     - if policy(order).destroy?
-      = link_to 'Delete', user_order_path(order.user, order), data: {'turbo-method': :delete}, class: 'form-btn'
+      = link_to t('helpers.submit.order._order.delete'), user_order_path(order.user, order), data: {'turbo-method': :delete}, class: 'form-btn'
