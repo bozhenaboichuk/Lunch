@@ -17,20 +17,20 @@
             %ul.flex
               - if user_signed_in? and session[:order_id]
                 %li.mx-5.hover:text-gray-400
-                  = link_to t('application.menu_my_order'), user_order_path(current_user, session[:order_id])
+                  = link_to t('.menu_my_order'), user_order_path(current_user, session[:order_id])
               - if user_signed_in?
                 %li.mx-5.hover:text-gray-400
-                  = link_to t('application.menu_history'), user_orders_path(current_user)
+                  = link_to t('.menu_history'), user_orders_path(current_user)
                 %li.mx-5.hover:text-gray-400
-                  = link_to t('application.menu_profile'), current_user
+                  = link_to t('.menu_profile'), current_user
                 %li.mx-5.hover:text-gray-400
-                  = link_to t('application.menu_users'), users_path
+                  = link_to t('.menu_users'), users_path
               - if user_signed_in?
                 %li.mx-5.hover:text-gray-400
-                  = link_to t('application.menu_sign_out'), destroy_user_session_path, data: {turbo_method: :delete}
+                  = link_to t('.menu_sign_out'), destroy_user_session_path, data: {turbo_method: :delete}
               - else
                 %li.mx-5.hover:text-gray-400
-                  = link_to t('application.menu_log_in'), new_user_session_path
+                  = link_to t('.menu_log_in'), new_user_session_path
 
           %div.sm:hidden
             %button.flex.items-center.px-2.py-2.border.rounded.text-black.hover:text-white.hover:border-white.outline-none.mobile-menu-button
@@ -39,20 +39,20 @@
         %div.mobile-menu.hidden.sm:hidden.text-black
           - if user_signed_in? and session[:order_id]
             .block-inline.py-2.px-4.text-xl.hover:bg-gray-200
-              = link_to t('application.menu_my_order'), user_order_path(current_user, session[:order_id])
+              = link_to t('.menu_my_order'), user_order_path(current_user, session[:order_id])
           - if user_signed_in?
             .block-inline.py-2.px-4.text-xl.hover:bg-gray-200
-              = link_to t('application.menu_history'), user_orders_path(current_user)
+              = link_to t('.menu_history'), user_orders_path(current_user)
             .block-inline.py-2.px-4.text-xl.hover:bg-gray-200
-              = link_to t('application.menu_profile'), current_user
+              = link_to t('.menu_profile'), current_user
             .block-inline.py-2.px-4.text-xl.hover:bg-gray-200
-              = link_to t('application.menu_users'), users_path
+              = link_to t('.menu_users'), users_path
           - if user_signed_in?
             .block-inline.py-2.px-4.text-xl.hover:bg-gray-200
-              = link_to t('application.menu_sign_out'), destroy_user_session_path, data: {turbo_method: :delete}
+              = link_to t('.menu_sign_out'), destroy_user_session_path, data: {turbo_method: :delete}
           - else
             .block-inline.py-2.px-4.text-sm.hover:bg-gray-200
-              = link_to t('application.menu_log_in'), new_user_session_path
+              = link_to t('.menu_log_in'), new_user_session_path
 
           :javascript
             btn = document.querySelector("button.mobile-menu-button");
