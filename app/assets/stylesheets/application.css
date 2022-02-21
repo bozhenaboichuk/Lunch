@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 .heading-1 {
-  @apply mb-8 text-center font-nav text-6xl text-black;
+  @apply text-center font-nav text-6xl text-black;
 }
 
 .heading-2 {

@@ -1,11 +1,11 @@
 .flex.justify-center
   %h1.heading-1
     Ресторани
-    .justify-items-end
+    .justify-items-center
       - if policy(Restaurant).create?
         %button
           = link_to new_restaurant_path do
-            %svg.h-12.w-12.-mt-5{:fill => "none", :stroke => "black", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+            %svg.h-12.w-12{:fill => "none", :stroke => "black", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
               %path{:d => "M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2"}
-.adaptive-restaurants
+.adaptive-restaurants.py-4
   = render @restaurants
