@@ -55,19 +55,6 @@ en:
     menu_users: "Users"
     menu_sign_out: "Sign out"
     menu_log_in: "Log in"
-  users:
-    show:
-      profile_first_name: "First name:"
-      profile_last_name: "Last name:"
-      profile_email: "E-mail:"
-      profile_phone_number: "Phone:"
-      profile_locale: "Locale:"
-    registrations:
-      edit:
-        heading: "Edit User"
-        leave blank: "(leave blank if you don't want to change it)"
-        characters minimum: "characters minimum"
-        need_current_password: "(we need your current password to confirm your changes)"
   restaurants:
     new:
       heading: "Add a restaurant"
@@ -96,6 +83,18 @@ en:
       user_first_name: "User:"
       e_mail: "E-mail:"
       user_role: "Role:"
+    show:
+      profile_first_name: "First name:"
+      profile_last_name: "Last name:"
+      profile_email: "E-mail:"
+      profile_phone_number: "Phone:"
+      profile_locale: "Locale:"
+    registrations:
+      edit:
+        heading: "Edit User"
+        leave blank: "(leave blank if you don't want to change it)"
+        characters minimum: "characters minimum"
+        need_current_password: "(we need your current password to confirm your changes)"
   line_items:
     create:
       notice: "The dish was successfully added!"

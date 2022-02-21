@@ -55,19 +55,6 @@ ua:
     menu_users: "Користувачі"
     menu_sign_out: "Вийти"
     menu_log_in: "Увійти"
-  users:
-    show:
-      profile_first_name: "Ім'я:"
-      profile_last_name: "Прізвище:"
-      profile_email: "Ел.пошта:"
-      profile_phone_number: "Телефон:"
-      profile_locale: "Мова:"
-    registrations:
-      edit:
-        heading: "Редагувати користувача"
-        leave blank: "(Не заповнюйте поле якщо не хочете міняти пароль)"
-        characters minimum: "символів мінімум"
-        need_current_password: "(Потрібно ввести поточний пароль для збереження змін)"
   restaurants:
     new:
       heading: "Додати ресторан"
@@ -96,6 +83,18 @@ ua:
       user_first_name: "Користувач:"
       e_mail: "Ел.пошта:"
       user_role: "Роль:"
+    show:
+      profile_first_name: "Ім'я:"
+      profile_last_name: "Прізвище:"
+      profile_email: "Ел.пошта:"
+      profile_phone_number: "Телефон:"
+      profile_locale: "Мова:"
+    registrations:
+      edit:
+        heading: "Редагувати користувача"
+        leave blank: "(Не заповнюйте поле якщо не хочете міняти пароль)"
+        characters minimum: "символів мінімум"
+        need_current_password: "(Потрібно ввести поточний пароль для збереження змін)"
   line_items:
     create:
       notice: "Страву успішно додано!"
