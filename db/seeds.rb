@@ -17,15 +17,15 @@ end
 
 def populate_dish_types
   DishType.destroy_all
-  DishType.create [{name: "first" , heading: "Перші страви"},
-                   {name: "second", heading: "Основні страви"},
-                   {name: "salad" , heading: "Салати"},
-                   {name: "desert" , heading: "Десерти"},
-                   {name:"pizza", heading: "Піца"},
-                   {name:"sushi", heading: "Суші"},
-                   {name:"drinks", heading: "Напої"},
-                   {name:"other_dishes", heading: "Інші страви"},
-                   {name:"sets", heading: "Сети"}]
+  DishType.create [{name: "first" , heading: "First"},
+                   {name: "second", heading: "Second"},
+                   {name: "salad" , heading: "Salad"},
+                   {name: "desert" , heading: "Desert"},
+                   {name:"pizza", heading: "Pizza"},
+                   {name:"sushi", heading: "Sushi"},
+                   {name:"drinks", heading: "Drinks"},
+                   {name:"other_dishes", heading: "Other dishes"},
+                   {name:"sets", heading: "Sets"}]
 end
 
 def populate_restaurants
@@ -172,7 +172,7 @@ def populate_dishes
                  picture: open(img_path "spajsi-kurka-350x350.png"),
                  weight:0.48,
                  price:143,
-                 describe:"Основа, томатний соус, сир моцарелла, курка, кукурудза, соус солодкий чіл"},
+                 describe:"Основа, том атний соус, сир моцарелла, курка, кукурудза, соус солодкий чіл"},
                { name: "Супрім",
                  dish_type: DishType.find_by(name: "pizza"),
                  restaurant: pronto_pizza,

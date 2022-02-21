@@ -7,6 +7,23 @@ ua:
       back: "Назад"
       choose_file: "Вибрати файл"
       update: "Змінити"
+    submit:
+      restaurant:
+        create: "Зберегти"
+      dish:
+        create: "Зберегти"
+      order:
+        _order:
+          update: "Змінити статус"
+          delete: "Видалити"
+        show:
+          remove: "Видалити"
+          back: "Повернутись до страв"
+          complete: "Завершити"
+          cancel: "Відмінити"
+      user:
+        delete: "Видалити"
+        change: "Змінити роль"
   activerecord:
     attributes:
       user:
@@ -19,6 +36,18 @@ ua:
         locale: "Мова"
         password_confirmation: "Підтвердження паролю"
         current_password: "Поточний пароль"
+      restaurant:
+        name: "Назва"
+        phone_number: "Номер телефону"
+        address: "Адреса"
+        picture: "Зображення"
+      dish:
+        name: "Назва"
+        describe: "Опис"
+        price: "Ціна"
+        weight: "Вага"
+        picture: "Зображення"
+        dish_type: "Класифікація страви"
   application:
     menu_my_order: "Мої замовлення"
     menu_history: "Історія"
@@ -39,3 +68,34 @@ ua:
         leave blank: "(Не заповнюйте поле якщо не хочете міняти пароль)"
         characters minimum: "символів мінімум"
         need_current_password: "(Потрібно ввести поточний пароль для збереження змін)"
+  restaurants:
+    new:
+      heading: "Додати ресторан"
+    index:
+      heading: "Ресторани"
+    show:
+      heading: "Меню"
+  dishes:
+    edit:
+      heading: "Редагувати страву"
+    new:
+      heading: "Додати страву"
+    _dish:
+      price: "Ціна"
+      currency: "грн"
+  orders:
+    index:
+      heading: "Історія замолень"
+    _order:
+      completed: "завершено"
+      pending: "на розгляді"
+    show:
+      heading: "Замовлення"
+  users:
+    index:
+      user_first_name: "Користувач:"
+      e_mail: "Ел.пошта:"
+      user_role: "Роль:"
+  line_items:
+    create:
+      notice: "Страву успішно додано!"

@@ -4,13 +4,13 @@ class LineItemsController < ApplicationController
   before_action :set_current_order, only: [:create]
   before_action :set_line_item!, only: :destroy
   before_action :authorize_line_item
-  
+
   def create
     dish = Dish.find(params[:dish_id])
     @line_item = @order.line_items.build(dish: dish)
 
     if @line_item.save
-      notice = 'Dish was successfully added!'
+      notice = t('.notice')
       redirect_to restaurant_path(dish.restaurant, anchor: dom_id(dish)), status: :see_other, notice: notice
     else
       render :new

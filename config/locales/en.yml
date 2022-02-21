@@ -7,6 +7,23 @@ en:
       back: "Back"
       choose_file: "Choose file"
       update: "Update"
+    submit:
+      restaurant:
+        create: "Save"
+      dish:
+        create: "Save"
+      order:
+        _order:
+          update: "Toggle"
+          delete: "Delete"
+        show:
+          remove: "Remove"
+          back: "Back to dishes"
+          complete: "Complete"
+          cancel: "Cancel"
+      user:
+        delete: "Delete"
+        change: "Change role"
   activerecord:
     attributes:
       user:
@@ -19,6 +36,18 @@ en:
         locale: "Locale"
         password_confirmation: "Password Confirmation"
         current_password: "Current Password"
+      restaurant:
+        name: "Name"
+        phone_number: "Phone_number"
+        address: "Address"
+        picture: "Picture"
+      dish:
+        name: "Name"
+        describe: "Describe"
+        price: "Price"
+        weight: "Weight"
+        picture: "Picture"
+        dish_type: "Dish_type"
   application:
     menu_my_order: "My order"
     menu_history: "History"
@@ -39,3 +68,34 @@ en:
         leave blank: "(leave blank if you don't want to change it)"
         characters minimum: "characters minimum"
         need_current_password: "(we need your current password to confirm your changes)"
+  restaurants:
+    new:
+      heading: "Add a restaurant"
+    index:
+      heading: "Restaurants"
+    show:
+      heading: "Menu"
+  dishes:
+    edit:
+      heading: "Edit the dish"
+    new:
+      heading: "Add a dish"
+    _dish:
+      price: "Price"
+      currency: "uah"
+  orders:
+    index:
+      heading: "Order history"
+    _order:
+      completed: "completed"
+      pending: "pending"
+    show:
+      heading: "Order"
+  users:
+    index:
+      user_first_name: "User:"
+      e_mail: "E-mail:"
+      user_role: "Role:"
+  line_items:
+    create:
+      notice: "The dish was successfully added!"

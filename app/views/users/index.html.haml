@@ -7,16 +7,16 @@
         - else
           = image_tag('default.jpg', size: '150x150')
       .block.text-center
-        Користувач:
+        = t('users.index.user_first_name')
         = user.first_name
       .block.text-center
-        E-mail:
+        = t('users.index.e_mail')
         = user.email
       .block.text-center
-        Роль:
+        = t('users.index.user_role')
         = user.role
       %section.flex.justify-center
         - if policy(user).update?
-          = link_to 'Delete', admin_user_path(user), data: {'turbo-method': :delete}, class: 'form-btn'
+          = link_to t('helpers.submit.user.delete'), admin_user_path(user), data: {'turbo-method': :delete}, class: 'form-btn'
         - if policy(user).destroy?
-          = link_to 'Change role', admin_user_path(user), data: {'turbo-method': :patch}, class: 'form-btn ml-3'
+          = link_to t('helpers.submit.user.change'), admin_user_path(user), data: {'turbo-method': :patch}, class: 'form-btn ml-3'

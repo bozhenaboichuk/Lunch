@@ -58,6 +58,7 @@ gem "pg"
 gem "pundit", "~> 2.1.1"
 gem "imagekitio"
 gem "carrierwave"
+gem 'rails-i18n'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
