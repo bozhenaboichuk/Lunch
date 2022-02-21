@@ -26,3 +26,6 @@ Metrics/BlockLength:
 Layout/LineLength:
   Exclude:
     - spec/**/*.rb
+
+RSpec/MultipleExpectations:
+  Max: 10
