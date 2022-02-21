@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   enum role: { basic: 0, admin: 1 }, _suffix: :role
+  validates :locale, inclusion: { in: %w(en ua) }
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -18,7 +20,7 @@ class User < ApplicationRecord
     fname = self.first_name.strip
     lname = self.last_name.strip
     email = self.email.strip
-    
+
     if fname.empty? || lname.empty?
       email[0, email.index('@')]
     else
