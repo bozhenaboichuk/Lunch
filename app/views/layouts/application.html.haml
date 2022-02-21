@@ -1,5 +1,5 @@
 !!!
-%html.h-full
+%html.min-h-full
   %head
     %title Lunch
     %meta{name: "viewport", content: "width=device-width,initial-scale=1"}
@@ -9,7 +9,7 @@
     = javascript_importmap_tags
 
     %body.text-gray-600
-      %header.p-4.border-b.sticky.bg-white.fixed.top-0.shadow-xl.z-10.absolute.font-nav.text-2xl.min-h-20
+      %header.p-4.border-b.sticky.bg-white.top-0.z-10.absolute.font-nav.text-2xl.min-h-20
         %nav.flex.justify-between.text-black
           = link_to (image_tag 'LUNCH.png', width:"150px"), root_path
           %div.hidden.sm:flex.items-center.space-x-1
@@ -59,7 +59,7 @@
 
             btn.addEventListener("click", () => { menu.classList.toggle("hidden");});
 
-      %main.p-8.bg-gray-100.mb-16
+      %main.bg-gray-100.pb-16.p-8
 
         - if notice
           .flex.align-center.mb-5
