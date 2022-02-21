@@ -1,7 +1,5 @@
 ua:
   helpers:
-    edit:
-      edit_profile: "Редагувати профіль"
     users:
       cancel_account: "Видалити мій акаунт"
       back: "Назад"
@@ -12,18 +10,6 @@ ua:
         create: "Зберегти"
       dish:
         create: "Зберегти"
-      order:
-        _order:
-          update: "Змінити статус"
-          delete: "Видалити"
-        show:
-          remove: "Видалити"
-          back: "Повернутись до страв"
-          complete: "Завершити"
-          cancel: "Відмінити"
-      user:
-        delete: "Видалити"
-        change: "Змінити роль"
   activerecord:
     attributes:
       user:
@@ -48,13 +34,14 @@ ua:
         weight: "Вага"
         picture: "Зображення"
         dish_type: "Класифікація страви"
-  application:
-    menu_my_order: "Мої замовлення"
-    menu_history: "Історія"
-    menu_profile: "Профіль"
-    menu_users: "Користувачі"
-    menu_sign_out: "Вийти"
-    menu_log_in: "Увійти"
+  layouts:
+    application:
+      menu_my_order: "Мої замовлення"
+      menu_history: "Історія"
+      menu_profile: "Профіль"
+      menu_users: "Користувачі"
+      menu_sign_out: "Вийти"
+      menu_log_in: "Увійти"
   restaurants:
     new:
       heading: "Додати ресторан"
@@ -67,28 +54,37 @@ ua:
       heading: "Редагувати страву"
     new:
       heading: "Додати страву"
-    _dish:
+    dish:
       price: "Ціна"
       currency: "грн"
   orders:
     index:
       heading: "Історія замолень"
-    _order:
+    order:
       completed: "завершено"
       pending: "на розгляді"
+      update: "Змінити статус"
+      destroy: "Видалити"
     show:
       heading: "Замовлення"
+      remove: "Видалити"
+      back: "Повернутись до страв"
+      complete: "Завершити"
+      cancel: "Відмінити"
   users:
     index:
       user_first_name: "Користувач:"
       e_mail: "Ел.пошта:"
       user_role: "Роль:"
+      delete: "Видалити"
+      change: "Змінити роль"
     show:
       profile_first_name: "Ім'я:"
       profile_last_name: "Прізвище:"
       profile_email: "Ел.пошта:"
       profile_phone_number: "Телефон:"
       profile_locale: "Мова:"
+      edit_profile: "Редагувати профіль"
     registrations:
       edit:
         heading: "Редагувати користувача"

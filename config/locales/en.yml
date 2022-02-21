@@ -1,7 +1,5 @@
 en:
   helpers:
-    edit:
-      edit_profile: "Edit profiile"
     users:
       cancel_account: "Cancel my account"
       back: "Back"
@@ -12,18 +10,6 @@ en:
         create: "Save"
       dish:
         create: "Save"
-      order:
-        _order:
-          update: "Toggle"
-          delete: "Delete"
-        show:
-          remove: "Remove"
-          back: "Back to dishes"
-          complete: "Complete"
-          cancel: "Cancel"
-      user:
-        delete: "Delete"
-        change: "Change role"
   activerecord:
     attributes:
       user:
@@ -48,13 +34,14 @@ en:
         weight: "Weight"
         picture: "Picture"
         dish_type: "Dish_type"
-  application:
-    menu_my_order: "My order"
-    menu_history: "History"
-    menu_profile: "Profile"
-    menu_users: "Users"
-    menu_sign_out: "Sign out"
-    menu_log_in: "Log in"
+  layouts:
+    application:
+      menu_my_order: "My order"
+      menu_history: "History"
+      menu_profile: "Profile"
+      menu_users: "Users"
+      menu_sign_out: "Sign out"
+      menu_log_in: "Log in"
   restaurants:
     new:
       heading: "Add a restaurant"
@@ -67,28 +54,37 @@ en:
       heading: "Edit the dish"
     new:
       heading: "Add a dish"
-    _dish:
+    dish:
       price: "Price"
       currency: "uah"
   orders:
     index:
       heading: "Order history"
-    _order:
+    order:
       completed: "completed"
       pending: "pending"
+      update: "Toggle"
+      destroy: "Delete"
     show:
       heading: "Order"
+      remove: "Remove"
+      back: "Back to dishes"
+      complete: "Complete"
+      cancel: "Cancel"
   users:
     index:
       user_first_name: "User:"
       e_mail: "E-mail:"
       user_role: "Role:"
+      delete: "Delete"
+      change: "Change role"
     show:
       profile_first_name: "First name:"
       profile_last_name: "Last name:"
       profile_email: "E-mail:"
       profile_phone_number: "Phone:"
       profile_locale: "Locale:"
+      edit_profile: "Edit profiile"
     registrations:
       edit:
         heading: "Edit User"
