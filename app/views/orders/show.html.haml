@@ -8,15 +8,15 @@
           = item.dish.name
         .flex.justify-center
           - if policy(@order).destroy?
-            = link_to t('helpers.submit.order.show.remove'), user_order_line_item_path(current_user, @order, item), data: {'turbo-method': :delete}, class: 'btn-sm'
+            = link_to t('.remove'), user_order_line_item_path(current_user, @order, item), data: {'turbo-method': :delete}, class: 'btn-sm'
           - else
             = link_to 'Home', root_path, class: 'btn'
     %section.border-t-4
       .flex.justify-center.my-3
         - if @order.dishes.present?
-          = link_to t('helpers.submit.order.show.back'), restaurant_path(@order.dishes.last.restaurant), class: 'btn'
+          = link_to t('.back'), restaurant_path(@order.dishes.last.restaurant), class: 'btn'
       .flex.justify-center
         - if policy(@order).create?
-          = button_to t('helpers.submit.order.show.complete'), user_orders_path(current_user), class: 'ml-2 btn'
+          = button_to t('.complete'), user_orders_path(current_user), class: 'ml-2 btn'
         - if policy(@order).destroy?
-          = link_to t('helpers.submit.order.show.cancel'), user_order_path(current_user, @order), data: {'turbo-method': :delete}, class: 'ml-2 btn'
+          = link_to t('.cancel'), user_order_path(current_user, @order), data: {'turbo-method': :delete}, class: 'ml-2 btn'
