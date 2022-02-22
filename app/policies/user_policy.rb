@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserPolicy < ApplicationPolicy
   def create?
     user.admin_role?
@@ -22,5 +24,4 @@ class UserPolicy < ApplicationPolicy
   def show?
     true
   end
-
 end

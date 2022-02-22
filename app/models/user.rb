@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   enum role: { basic: 0, admin: 1 }, _suffix: :role
   validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }
@@ -10,6 +12,7 @@ class User < ApplicationRecord
   has_many :orders, dependent: :destroy
   # has_one_attached :avatar
   attr_accessor :avatar
+
   mount_uploader :avatar, AvatarUploader
 
   def guest?
@@ -17,14 +20,14 @@ class User < ApplicationRecord
   end
 
   def name_or_email
-    fname = self.first_name.strip
-    lname = self.last_name.strip
+    fname = first_name.strip
+    lname = last_name.strip
     email = self.email.strip
 
     if fname.empty? || lname.empty?
       email[0, email.index('@')]
     else
-      (fname + ' ' + lname).strip
+      "#{fname} #{lname}".strip
     end
   end
 end

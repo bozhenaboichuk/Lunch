@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ImageKitIo.configure do |config|
   if Rails.env.development? || Rails.env.production?
     config.public_key = ENV['IMAGEKITIO_PUBLIC_KEY']
