@@ -2,11 +2,11 @@
 
 class DishPolicy < ApplicationPolicy
   def create?
-    user.admin_role?
+    user.admin_role? || user.basic_role?
   end
 
   def update?
-    user.admin_role?
+    user.admin_role? || user.basic_role?
   end
 
   def destroy?
