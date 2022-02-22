@@ -75,10 +75,10 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
-  gem 'pry'
-  gem 'pry-rails'
-  gem 'pry-doc'
   gem 'letter_opener'
+  gem 'pry'
+  gem 'pry-doc'
+  gem 'pry-rails'
   gem 'rubocop', '~> 1.18', require: false
   gem 'rubocop-i18n', '~> 3', require: false
   gem 'rubocop-performance', '~> 1.11', require: false
