@@ -1,5 +1,6 @@
-module CurrentOrder
+# frozen_string_literal: true
 
+module CurrentOrder
   private
 
   def set_current_order

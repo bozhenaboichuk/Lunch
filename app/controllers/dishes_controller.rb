@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DishesController < ApplicationController
   before_action :set_restaurant!
   before_action :set_dish!, only: %i[edit update destroy]
@@ -13,8 +15,7 @@ class DishesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @dish.update dish_params
@@ -27,7 +28,6 @@ class DishesController < ApplicationController
   def new
     @dish = @restaurant.dishes.build
   end
-
 
   def destroy
     @dish.destroy
@@ -47,7 +47,7 @@ class DishesController < ApplicationController
   def set_dish!
     @dish = Dish.find params[:id]
   end
-  
+
   def dish_params
     params.require(:dish).permit(:price, :weight, :describe, :name, :picture, :dish_type_id)
   end
