@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   has_many :line_items, dependent: :destroy
   has_many :dishes, through: :line_items
 
-  scope :all_or_today, -> lambda { |opt|
+  scope :all_or_today, lambda { |opt|
     orders = includes(:user).where(submitted: true)
 
     unless opt&.to_sym == :all
