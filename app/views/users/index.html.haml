@@ -1,21 +1,23 @@
-.min-h-users
+.adaptive-user-cards
   - @users.each do |user|
-    .inline-block.m-5.text-black.font-nav.text-2xl
+    .inline-block.text-black.font-nav.text-2xl.bg-white.shadow.rounded.p-6.w-72
       .block.flex.justify-center
         - if user.avatar.url.present?
-          = image_tag(user.avatar.url, size: '150x150')
+          = image_tag(user.avatar.url, size: '120x200')
         - else
-          = image_tag('default.jpg', size: '150x150')
+          = image_tag('default.jpg', size: '120x200')
       .block.text-center
         Користувач:
-        = user.first_name
       .block.text-center
+        = user.first_name
+        = user.last_name
+      .block.text-ellipsis.whitespace-nowrap.overflow-hidden.text-center
         E-mail:
         = user.email
       .block.text-center
         Роль:
         = user.role
-      %section.flex.justify-center
+      %section.flex.justify-center.mt-5
         - if policy(user).update?
           = link_to 'Delete', admin_user_path(user), data: {'turbo-method': :delete}, class: 'form-btn'
         - if policy(user).destroy?

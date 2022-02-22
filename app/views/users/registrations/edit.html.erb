@@ -1,5 +1,5 @@
-<div class=" inset-x-0 bottom-0 bg-gray-100 my-4">
-    <div class="w-full min-h-full max-w-xs m-auto bg-gray-200  rounded p-5">
+<div class=" inset-x-0 bottom-0 bg-gray-100">
+    <div class="w-full min-h-full max-w-xs m-auto bg-gray-200 rounded p-5">
       <h2 class="text-3xl mb-4 font-medium text-center text-black ">Edit <%= resource_name.to_s.humanize %></h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -52,14 +52,16 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form' %>
         </div>
 
-        <div class="field block mb-2 text-gray-600>
+        <div class="field block mb-2 text-gray-600">
           <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
           <%= f.password_field :current_password, autocomplete: "current-password", class:'form' %>
         </div>
 
-        <div class="actions">
-          <%= f.submit "Update", class:'form-btn inline-block' %>
-          <%= button_to "Cancel account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:'form-btn inline-block' %>
-          <%= link_to "Back", :back , class:'form-btn mt-1 inline-block' %>
+        <div class="actions flex justify-center">
+          <%= f.submit "Update", class:'form-btn' %>
         </div>
-      <% end %>
+          <% end %>
+        <div class="actions flex justify-center">
+          <%= button_to "Cancel account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:'form-btn m-1' %>
+          <%= link_to "Back", :back , class:'form-btn my-1 mr-1 inline-block' %>
+        </div>

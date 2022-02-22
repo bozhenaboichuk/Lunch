@@ -1,5 +1,5 @@
-<section class=" bg-gray-200 ">
-    <div class="w-full max-w-xs m-auto bg-gray-100 rounded p-5">
+<section class="bg-gray-100">
+    <div class="w-full max-w-xs m-auto bg-gray-200 rounded p-5">
     <h2 class="text-3xl mb-4 font-medium text-center text-black">Reset password</h2>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -10,7 +10,7 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form' %>
       </div>
 
-      <div class="actions">
+      <div class="actions flex justify-center">
         <%= f.submit "Submit", class:'form-btn' %>
       </div>
     <% end %>

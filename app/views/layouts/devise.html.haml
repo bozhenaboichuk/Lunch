@@ -1,5 +1,5 @@
 !!!
-%html.min-h-full
+%html.h-full
   %head
     %title Lunch
     %meta{name: "viewport", content: "width=device-width,initial-scale=1"}
@@ -10,7 +10,7 @@
 
 
     %body
-      %header.p-4.border-b.sticky.bg-white.top-0.z-10.absolute.font-nav.text-2xl.min-h-20
+      %header.p-4.border-b.sticky.bg-white.top-0.z-10.absolute.font-nav.text-2xl.min-h-20.m-0
         %nav.flex.justify-between.text-black
           = link_to (image_tag 'LUNCH.png', width:"150px"), root_path
           -# = link_to image_tag( 'Lunch.png'), root_path
@@ -18,7 +18,7 @@
           -# %image{:alt => "", :src => "asset_path('Lunch.png')}"}
           -# %img(src="Lunch.png")
           -# = image_tag('images/Lunch', class:"img-responsive img-circle")
-      %main.bg-gray-100.pb-16.p-8
+      %main.bg-gray-100.pb-24.p-8
         - if notice
           .flex.align-center.mb-5
             .notice
