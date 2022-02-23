@@ -2,6 +2,8 @@
 
 class User < ApplicationRecord
   enum role: { basic: 0, admin: 1 }, _suffix: :role
+  validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

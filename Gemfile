@@ -8,6 +8,8 @@ ruby '3.0.3'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.1'
 
+gem 'rails-i18n'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
@@ -58,6 +60,7 @@ gem 'imagekitio'
 gem 'mysql2'
 gem 'pg'
 gem 'pundit', '~> 2.1.1'
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

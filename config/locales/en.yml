@@ -1,33 +1,96 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  helpers:
+    users:
+      cancel_account: "Cancel my account"
+      back: "Back"
+      choose_file: "Choose file"
+      update: "Update"
+    submit:
+      restaurant:
+        create: "Save"
+      dish:
+        create: "Save"
+  activerecord:
+    attributes:
+      user:
+        email: "E-mail"
+        first_name: "First name"
+        last_name: "Last name"
+        avatar: "Avatar"
+        phone_number: "Phone_number"
+        password: "New Password"
+        locale: "Locale"
+        password_confirmation: "Password Confirmation"
+        current_password: "Current Password"
+      restaurant:
+        name: "Name"
+        phone_number: "Phone_number"
+        address: "Address"
+        picture: "Picture"
+      dish:
+        name: "Name"
+        describe: "Describe"
+        price: "Price"
+        weight: "Weight"
+        picture: "Picture"
+        dish_type: "Dish_type"
+  layouts:
+    application:
+      menu_my_order: "My order"
+      menu_history: "History"
+      menu_profile: "Profile"
+      menu_users: "Users"
+      menu_sign_out: "Sign out"
+      menu_log_in: "Log in"
+  restaurants:
+    new:
+      heading: "Add a restaurant"
+    index:
+      heading: "Restaurants"
+    show:
+      heading: "Menu"
+  dishes:
+    edit:
+      heading: "Edit the dish"
+    new:
+      heading: "Add a dish"
+    dish:
+      price: "Price"
+      currency: "uah"
+  orders:
+    index:
+      heading: "Order history"
+    order:
+      completed: "completed"
+      pending: "pending"
+      update: "Toggle"
+      destroy: "Delete"
+    show:
+      heading: "Order"
+      remove: "Remove"
+      back: "Back to dishes"
+      complete: "Complete"
+      cancel: "Cancel"
+  users:
+    index:
+      user_first_name: "User:"
+      e_mail: "E-mail:"
+      user_role: "Role:"
+      delete: "Delete"
+      change: "Change role"
+    show:
+      profile_first_name: "First name:"
+      profile_last_name: "Last name:"
+      profile_email: "E-mail:"
+      profile_phone_number: "Phone:"
+      profile_locale: "Locale:"
+      edit_profile: "Edit profiile"
+    registrations:
+      edit:
+        heading: "Edit User"
+        leave blank: "(leave blank if you don't want to change it)"
+        characters minimum: "characters minimum"
+        need_current_password: "(we need your current password to confirm your changes)"
+  line_items:
+    create:
+      notice: "The dish was successfully added!"

@@ -5,17 +5,20 @@
     - else
       = image_tag('default.jpg', size: '150x150')
   .block.flex.justify-center
-    Ім'я:
+    = t('.profile_first_name')
     = @user.first_name
   .block.flex.justify-center
-    Прізвище:
+    = t('.profile_last_name')
     = @user.last_name
   .block.flex.justify-center
-    E-mail:
+    = t('.profile_email')
     = @user.email
   .block.flex.justify-center
-    Телефон:
+    = t('.profile_phone_number')
     = @user.phone_number
   .block.flex.justify-center
+    = t('.profile_locale')
+    = @user.locale
+  .block.flex.justify-center
     %button.form-btn.flex.justify-center
-      = link_to "Редагувати дані".html_safe, edit_user_registration_path
+      = link_to t('.edit_profile').html_safe, edit_user_registration_path
