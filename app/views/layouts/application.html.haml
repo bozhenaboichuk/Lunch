@@ -19,7 +19,7 @@
                   = link_to 'My order', user_order_path(current_user, session[:order_id])
               - if user_signed_in?
                 %li.mx-5.hover:text-gray-400
-                  = link_to 'History', user_orders_path(current_user)
+                  = link_to 'History', orders_path
                 %li.mx-5.hover:text-gray-400
                   = link_to 'Profile', current_user
                 %li.mx-5.hover:text-gray-400
@@ -41,7 +41,7 @@
               = link_to 'My order', user_order_path(current_user, session[:order_id])
           - if user_signed_in?
             .block-inline.py-2.px-4.text-xl.hover:bg-gray-200
-              = link_to 'History', user_orders_path(current_user)
+              = link_to 'History', orders_path
             .block-inline.py-2.px-4.text-xl.hover:bg-gray-200
               = link_to 'Profile', current_user
             .block-inline.py-2.px-4.text-xl.hover:bg-gray-200

@@ -6,7 +6,7 @@ class Order < ApplicationRecord
   has_many :dishes, through: :line_items
 
   scope :all_or_today, lambda { |opt|
-    orders = includes(:user).where(submitted: true)
+    orders = includes(:user).includes(:line_items).includes(:dishes).where(submitted: true)
 
     unless opt&.to_sym == :all
       orders.where('DATE(created_at) = ?',

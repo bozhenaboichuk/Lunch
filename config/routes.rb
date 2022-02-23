@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :orders, only: :index do
+    resources :line_items
+  end
+
   resources :admin_users
 
   scope 'admin' do

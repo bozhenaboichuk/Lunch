@@ -8,7 +8,11 @@ class OrdersController < ApplicationController
   before_action :authorize_order
 
   def index
-    @orders = Order.all_or_today(params[:opt]).order(created_at: :desc)
+    if params[:user_id].present?
+      @orders = User.find(params[:user_id])&.orders&.all_or_today(params[:opt]).order(created_at: :desc)
+    else
+      @orders = Order.all_or_today(params[:opt]).order(created_at: :desc)
+    end
   end
 
   def show; end
@@ -17,7 +21,7 @@ class OrdersController < ApplicationController
     @order = Order.find session[:order_id]
     @order.update submitted: true
     session.delete(:order_id)
-    redirect_to user_orders_path(current_user), status: :see_other
+    redirect_to orders_path, status: :see_other
   end
 
   def update
@@ -27,13 +31,13 @@ class OrdersController < ApplicationController
       @order.update completed: true
     end
 
-    redirect_to user_orders_path(current_user), status: :see_other
+    redirect_to orders_path, status: :see_other
   end
 
   def destroy
     @order.destroy
     session.delete(:order_id)
-    redirect_to user_orders_path(current_user), status: :see_other
+    redirect_to orders_path, status: :see_other
   end
 
   private
