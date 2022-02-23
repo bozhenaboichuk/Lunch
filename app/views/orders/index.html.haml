@@ -3,11 +3,28 @@
 %main
   .flex.gap-4.mb-5.justify-center
     - if params[:user_id].present?
-      = link_to 'Today', user_orders_path(opt: :today), class: 'btn'
-      = link_to 'All', user_orders_path(opt: :all), class: 'btn'
+      = link_to 'Today as table', user_orders_path(opt: :today, orders_layout: :table), class: 'btn'
+      = link_to 'Today as cards', user_orders_path(opt: :today, orders_layout: :cards), class: 'btn'
+      = link_to 'All', user_orders_path(opt: :all, orders_layout: :cards), class: 'btn'
     - else
-      = link_to 'Today', orders_path(opt: :today), class: 'btn'
-      = link_to 'All', orders_path(opt: :all), class: 'btn'
+      = link_to 'Today as table', orders_path(opt: :today, orders_layout: :table), class: 'btn'
+      = link_to 'Today as cards', orders_path(opt: :today, orders_layout: :cards), class: 'btn'
+      = link_to 'All', orders_path(opt: :all, orders_layout: :cards), class: 'btn'
     
-  .adaptive-orders
-    = render @orders
+
+  .flex.gap-4.mb-5.justify-center
+    = link_to 'Complete all today', orders_path(update_orders: 'complete_all_today'), data: {'turbo-method': :update}, class: 'btn'
+      
+  - if session[:orders_layout] == 'table'
+    .flex.justify-center
+      %table.border-collapse.bg-white
+        %thead
+          %tr
+            %th.p-4.border.border-slate-300 User
+            %th.p-4.border.border-slate-300 Dishes
+            %th.p-4.border.border-slate-300 Actions
+        %tbody
+          = render partial: 'order_as_row', collection: @orders, as: :order
+  - else
+    .adaptive-orders
+      = render @orders
