@@ -12,8 +12,10 @@
       = link_to 'All', orders_path(opt: :all, orders_layout: :cards), class: 'btn'
     
 
-  .flex.gap-4.mb-5.justify-center
-    = link_to 'Complete all today', orders_path(update_orders: 'complete_all_today'), data: {'turbo-method': :update}, class: 'btn'
+  - if current_user.admin_role? && session[:orders_layout] == 'table'
+    .flex.gap-4.mb-5.justify-center
+      = link_to 'Complete all today', orders_path(update_orders: 'complete_all_today'), data: {'turbo-method': :patch}, class: 'btn'
+      = link_to 'Uncomplete all today', orders_path(update_orders: 'uncomplete_all_today'), data: {'turbo-method': :patch}, class: 'btn'
       
   - if session[:orders_layout] == 'table'
     .flex.justify-center

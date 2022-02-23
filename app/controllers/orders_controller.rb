@@ -4,8 +4,9 @@ class OrdersController < ApplicationController
   include CurrentOrder
 
   before_action :set_order!, only: %i[show destroy update]
+  before_action :set_today_orders, only: :update
   before_action :set_current_order, only: :create
-  before_action :authorize_order
+  before_action :authorize_order, except: :update
 
   def index
     if params[:user_id].present?
@@ -28,12 +29,19 @@ class OrdersController < ApplicationController
 
   def update
     if params[:update_orders] == 'complete_all_today'
-      complete_all_today
+      complete_all_today(@today_orders)
+    elsif params[:update_orders] == 'uncomplete_all_today'
+      uncomplete_all_today(@today_orders)
     else
+      authorize(@order)
       toggle_single_order(@order)
     end
 
-    redirect_to orders_path, status: :see_other
+    if params[:user_id].present?
+      redirect_to user_orders_path, status: :see_other
+    else
+      redirect_to orders_path, status: :see_other
+    end
   end
 
   def destroy
@@ -49,7 +57,11 @@ class OrdersController < ApplicationController
   end
 
   def set_order!
-    @order = Order.find params[:id]
+    @order = Order.find params[:id] if params[:id].present?
+  end
+
+  def set_today_orders
+    @today_orders = Order.all_or_today('today').order(created_at: :desc)
   end
 
   def orders_layout(layout)
@@ -70,11 +82,17 @@ class OrdersController < ApplicationController
     end
   end
   
-  def complete_all_today
-    today_orders = Order.all_or_today('today').order(created_at: :desc)
-    
+  def complete_all_today(today_orders)
     today_orders.each do |order|
+      authorize(order)
       order.update(completed: true) unless order.completed == true
+    end
+  end
+
+  def uncomplete_all_today(today_orders)
+    today_orders.each do |order|
+      authorize(order)
+      order.update(completed: false) unless order.completed == false
     end
   end
 
