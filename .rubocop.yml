@@ -2,6 +2,7 @@ require:
   - rubocop-performance
   - rubocop-rails
   - rubocop-i18n
+  - rubocop-rspec
 
 AllCops:
   NewCops: enable
@@ -17,3 +18,14 @@ Style/Documentation:
 
 Rails/FilePath:
   EnforcedStyle: arguments
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*.rb
+
+Layout/LineLength:
+  Exclude:
+    - spec/**/*.rb
+
+RSpec/MultipleExpectations:
+  Max: 10
