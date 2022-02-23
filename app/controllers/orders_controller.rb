@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
   before_action :authorize_order
 
   def index
-    @orders = Order.where('submitted = true').order(created_at: :desc)
+    @orders = Order.all_or_today(params[:opt]).order(created_at: :desc)
   end
 
   def show; end

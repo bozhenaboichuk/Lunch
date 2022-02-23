@@ -65,6 +65,7 @@ gem 'pundit', '~> 2.1.1'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails', '~> 5.0.0'
   gem 'sqlite3'
 end
 
@@ -79,10 +80,14 @@ group :development do
   # gem "spring"
 
   gem 'letter_opener'
+  gem 'pry'
+  gem 'pry-doc'
+  gem 'pry-rails'
   gem 'rubocop', '~> 1.18', require: false
   gem 'rubocop-i18n', '~> 3', require: false
   gem 'rubocop-performance', '~> 1.11', require: false
   gem 'rubocop-rails', '~> 2.11', require: false
+  gem 'rubocop-rspec', '~> 2.0', require: false
 end
 
 group :test do
