@@ -76,6 +76,9 @@ group :development do
   # gem "spring"
 
   gem 'letter_opener'
+  gem 'pry'
+  gem 'pry-doc'
+  gem 'pry-rails'
   gem 'rubocop', '~> 1.18', require: false
   gem 'rubocop-i18n', '~> 3', require: false
   gem 'rubocop-performance', '~> 1.11', require: false
