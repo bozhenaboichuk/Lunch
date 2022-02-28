@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
 
   def index
     if params[:user_id].present?
-      @orders = User.find(params[:user_id])&.orders&.all_or_today(params[:opt]).order(created_at: :desc)
+      @orders = User.find(params[:user_id]).orders.all_or_today(params[:opt]).order(created_at: :desc)
     else
       @orders = Order.all_or_today(params[:opt]).order(created_at: :desc)
     end
