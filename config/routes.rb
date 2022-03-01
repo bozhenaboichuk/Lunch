@@ -18,8 +18,11 @@ Rails.application.routes.draw do
   end
 
   resources :restaurants do
+    patch 'import', :on => :member
     resources :dishes
   end
 
   root 'restaurants#index'
+
+  # patch 'restaurants#import'
 end

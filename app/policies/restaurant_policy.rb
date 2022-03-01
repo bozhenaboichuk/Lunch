@@ -17,6 +17,10 @@ class RestaurantPolicy < ApplicationPolicy
     true
   end
 
+  def import?
+    true
+  end
+
   def show?
     true
   end

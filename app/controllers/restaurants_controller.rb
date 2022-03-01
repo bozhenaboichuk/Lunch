@@ -40,6 +40,29 @@ class RestaurantsController < ApplicationController
     @types = DishType.all
   end
 
+  def import
+    require 'open-uri'
+    url = 'https://legenda.if.ua/uk/legenda-pub/legenda-pub-menu/'
+    fh = URI.open(url)
+    html = fh.read
+    doc = Nokogiri.HTML5(html)
+      doc.css('.list_menu_dishes .section .list .dishes_list .dish .table .table_td[1] .content > text()').each do |name|
+      doc.css('.list_menu_dishes .section .list .dishes_list .dish .table .table_td[2] .content').each do |price|
+      doc.css('.list_menu_dishes .section .list .dishes_list .intro:not(.table)').each do |describe|
+
+      dish_name = name.text().gsub('\n','')
+      dish_price = price.text().gsub('\n','')
+      dish_describe = describe.text().gsub('\n','')
+
+
+        restaurant = Restaurant.find_or_create_by(name: 'Legenda pub', phone_number: '+38 (050) 378 8300')
+        restaurant.dishes.create(name: name, price: price, weight: 0, describe: describe, dish_type: DishType.find_or_create_by(name: 'first'))
+        end
+      end
+    end
+  end
+
+
   private
 
   def authorize_restaurant
