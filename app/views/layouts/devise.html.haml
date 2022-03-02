@@ -1,5 +1,5 @@
 !!!
-%html.h-full
+%html.min-h-full
   %head
     %title Lunch
     %meta{name: "viewport", content: "width=device-width,initial-scale=1"}
@@ -18,17 +18,17 @@
           -# %image{:alt => "", :src => "asset_path('Lunch.png')}"}
           -# %img(src="Lunch.png")
           -# = image_tag('images/Lunch', class:"img-responsive img-circle")
-      %main.bg-gray-100.pb-24.p-8
+      %main.bg-gray-100.pb-16
         - if notice
-          .flex.align-center.mb-5
+          .flex.align-center.mt-5.mx-3
             .notice
               = notice
         - if alert
-          .flex.align-center.mb-5
+          .flex.align-center.mt-5.mx-3
             .alert
               = alert
-
-        = yield
+        .container-h.flex.justify-center.items-center
+          = yield
 
       %footer.styles-footer
         &copy;

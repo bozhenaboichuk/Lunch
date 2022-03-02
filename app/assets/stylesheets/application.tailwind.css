@@ -75,3 +75,7 @@
 .adaptive-user-cards{
   @apply grid grid-cols-1 s2:grid-cols-2 s3:grid-cols-2 s4:grid-cols-3 s5:grid-cols-4 gap-4 justify-items-center;
 }
+
+.container-h {
+  min-height: calc(100vh - 149.5px);
+}
