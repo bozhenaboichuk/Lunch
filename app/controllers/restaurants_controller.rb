@@ -46,22 +46,19 @@ class RestaurantsController < ApplicationController
     fh = URI.open(url)
     html = fh.read
     doc = Nokogiri.HTML5(html)
-      doc.css('.list_menu_dishes .section .list .dishes_list .dish .table .table_td[1] .content > text()').each do |name|
-      doc.css('.list_menu_dishes .section .list .dishes_list .dish .table .table_td[2] .content').each do |price|
-      doc.css('.list_menu_dishes .section .list .dishes_list .intro:not(.table)').each do |describe|
+    doc.css('.list_menu_dishes .section .list').each do |dlist|
+      dish_name = dlist.css('.dish .table .table_td[1] .content > text()').each do |name|
+      dish_price = dlist.css('.dish .table .table_td[2] .content').text().gsub('\n','')
+      dish_describe = dlist.css('.intro:not(.table)').text().gsub('\n','')
+      dish_type = dlist.css('li h3').text().gsub('\n','')
 
       dish_name = name.text().gsub('\n','')
-      dish_price = price.text().gsub('\n','')
-      dish_describe = describe.text().gsub('\n','')
-
 
         restaurant = Restaurant.find_or_create_by(name: 'Legenda pub', phone_number: '+38 (050) 378 8300')
-        restaurant.dishes.create(name: name, price: price, weight: 0, describe: describe, dish_type: DishType.find_or_create_by(name: 'first'))
+        restaurant.dishes.create(name: dish_name, price: dish_price, weight: 0, describe: dish_describe, dish_type: DishType.find_or_create_by(name: dish_type))
         end
       end
     end
-  end
-
 
   private
 
