@@ -22,9 +22,7 @@ module.exports = {
         's5': '1280px',
       },
       minHeight: {
-        'full': '774px',
-        'users': '710px',
-        'card': '200px'
+        'card': '200px',
       },
     },
     variants: {
