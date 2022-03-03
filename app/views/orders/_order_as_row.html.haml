@@ -1,0 +1,25 @@
+%tr
+  %td.p-4.border.border-slate-300
+    %ol
+      %li
+        = order.user.name_or_email
+      %li
+        = order.created_at.strftime('%Y-%m-%d')
+  %td.p-4.border.border-slate-300
+    %ol
+      - order.dishes.each do |dish|
+        %li
+          = dish.name
+  %td.p-4.border.border-slate-300
+    %ol
+      %li.mb-4
+        - if order.completed == true
+          = 'completed'
+        - else
+          = 'pending'
+      %li
+        - if policy(order).update?
+          = link_to 'Toggle', user_order_path(order.user, order), data: {'turbo-method': :patch}, class: 'btn-sm'
+      %li.mt-4
+        - if policy(order).destroy?
+          = link_to 'Delete', user_order_path(order.user, order), data: {'turbo-method': :delete}, class: 'btn-sm'

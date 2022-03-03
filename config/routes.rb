@@ -10,9 +10,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders, only: :index do
+  resources :orders, only: %i[index] do
     resources :line_items
   end
+
+  patch 'orders', to: 'orders#update'
 
   resources :admin_users
 
