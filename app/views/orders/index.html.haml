@@ -2,8 +2,12 @@
   Історія замовлень
 %main
   .flex.gap-4.mb-5.justify-center
-    = link_to 'Today', user_orders_path(opt: :today), class: 'btn'
-    = link_to 'All', user_orders_path(opt: :all), class: 'btn'
+    - if params[:user_id].present?
+      = link_to 'Today', user_orders_path(opt: :today), class: 'btn'
+      = link_to 'All', user_orders_path(opt: :all), class: 'btn'
+    - else
+      = link_to 'Today', orders_path(opt: :today), class: 'btn'
+      = link_to 'All', orders_path(opt: :all), class: 'btn'
     
   .adaptive-orders
     = render @orders

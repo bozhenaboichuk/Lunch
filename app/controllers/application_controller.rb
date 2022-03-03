@@ -3,6 +3,7 @@
 class ApplicationController < ActionController::Base
   include ActionView::RecordIdentifier
   include Authorization
+  include ErrorHandling
 
   def account_update(resource, params)
     resource.update_without_password(params)
