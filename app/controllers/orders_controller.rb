@@ -68,9 +68,11 @@ class OrdersController < ApplicationController
     if layout == 'table' || layout == 'cards'
       session[:orders_layout] = layout
     elsif current_user.admin_role?
-      session[:orders_layout] = 'table'
+      session[:orders_layout] = 'table' if session[:orders_layout] != 'table' &&
+                                           session[:orders_layout] != 'cards'
     else
-      session[:orders_layout] = 'cards'
+      session[:orders_layout] = 'cards' if session[:orders_layout] != 'table' &&
+                                           session[:orders_layout] != 'cards'
     end
   end
 
