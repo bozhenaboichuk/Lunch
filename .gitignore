@@ -7,6 +7,12 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore IDE (VSCode, RubyMine) configs
+/.idea
+/.vscode
+/.byebug_history
+TAGS
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-*
@@ -16,6 +22,10 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+
+/config/database.yml
+/config/secrets.yml
+/config/storage.yml
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
