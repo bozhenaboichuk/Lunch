@@ -13,6 +13,8 @@ default-mysql: &default-mysql
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password:
   # socket: /var/run/mysqld/mysqld.sock
   reconnect: true
 
@@ -22,9 +24,9 @@ default-psql: &default-psql
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  host: <%= ENV['HOST'] %>
+  username: postgres
+  password:
+  host: 127.0.0.1
 
 development:
   <<: *default-sqlite3
@@ -33,12 +35,10 @@ development:
 # development:
 #   <<: *default-mysql
 #   database: lunch_devel
-#   username: lunch_app
-#   password: Bozhena27$
 
 # development:
 #   <<: *default-psql
-#   database: <%= ENV['DB_DEVEL_NAME'] %>
+#   database: lunch_devel
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -50,8 +50,6 @@ test:
 # test:
 #   <<: *default-mysql
 #   database: lunch_test
-#   username: lunch_app
-#   password: Bozhena27$
   
 # test:
 #   <<: *default-psql
@@ -64,9 +62,7 @@ test:
 # production:
 #   <<: *default-mysql
 #   database: lunch_prod
-#   username: lunch_app
-#   password: Bozhena27$
 
 production:
   <<: *default-psql
-  database: <%= ENV['DB_PROD_NAME'] %>
+  database: <%= ENV['DB_PROD_NAME'] || 'lunch_prod' %>
